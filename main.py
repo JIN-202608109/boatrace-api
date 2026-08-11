@@ -1,116 +1,67 @@
 import os
-from datetime import datetime
 import pandas as pd
+from datetime import datetime
 
+def main():
+    # 1. 日付に基づくファイル名と表示用の文字列を生成
+    now = datetime.now()
+    date_str_file = now.strftime("%Y%m%d")      # 20260811
+    date_str_disp = now.strftime("%Y年%-m月%-d日") # 2026年8月11日
+    
+    file_name = f"shobu_races_{date_str_file}.xlsx"
+    
+    if not os.path.exists(file_name):
+        print(f"エラー: 本日のファイル '{file_name}' が見つかりません。")
+        return
 
-def load_and_display_shobu_races(file_path: str):
-  if not os.path.exists(file_path):
-    print(f"エラー: ファイルが見つかりません -> {file_path}")
-    return
+    # 2. データの読み込み
+    df = pd.read_excel(file_name)
+    
+    # 3. サマリー表示
+    print("=" * 89)
+    print(f" 🎯 【全場】 本日の勝負レース判定サマリー（設定勝率: 85%以上 / 各場上位3Rまで）")
+    print("=" * 89)
+    print(f" 🔥 【判定】 本日は全国で合計 **{len(df)}件** の勝負レースがあります！\n")
 
-  # Excelファイルの読み込み（必要に応じてシート名を指定してください）
-  df = pd.read_excel(file_path)
+    # 場ごとにグループ化
+    grouped = df.groupby("場名")
+    
+    for venue, group in grouped:
+        print(f" 🚤 【{venue}】 勝負レース ({len(group)}件) " + "-" * 52)
+        for _, row in group.iterrows():
+            print(f"   • {date_str_disp}_{venue}_{row['R']}R （締切: {row['締切時間']}） | スコア: {row['スコア']}pt | 1号艇AI勝率: {row['1号艇AI勝率']}%")
+    
+    print("-" * 89)
+    print(" 💡 設定された条件を満たす、資金配分に適したレースを抽出しています。")
+    print("=" * 89 + "\n\n")
 
-  # --- [前提] Excel側のカラム構成（例）に合わせて適宜変更してください ---
-  # 必要なカラムの目安:
-  # '場名' (例: 唐津), 'R' (例: 1), '締切時間' (例: 08:44),
-  # 'スコア' (例: 95), '1号艇AI勝率' (例: 87.1), '日付' (例: 2026年8月11日)
-  # -----------------------------------------------------------------
-
-  # 全体の件数
-  total_count = len(df)
-  date_str = "2026年8月11日"  # 必要に応じてdfから動的に取得してもOK
-
-  # 1. サマリー部分の表示
-  print(
-      "=" * 89
-      + f"\n 🎯 【全場】 本日の勝負レース判定サマリー（設定勝率: 85%以上 /"
-      " 各場上位3Rまで）\n"
-      + "=" * 89
-  )
-  print(
-      f" 🔥 【判定】 本日は全国で合計 **{total_count}件**"
-      " の勝負レースがあります！\n"
-  )
-
-  # 場ごとにグループ化してサマリーを出力
-  grouped = df.groupby("場名")
-  for venue, group in grouped:
-    count = len(group)
-    print(f" 🚤 【{venue}】 勝負レース ({count}件) " + "-" * 52)
-    for _, row in group.iterrows():
-      r_num = row["R"]
-      deadline = row["締切時間"]
-      score = row["スコア"]
-      ai_rate = row["1号艇AI勝率"]
-      print(
-          f"   • {date_str}_{venue}_{r_num}R （締切: {deadline}） | スコア:"
-          f" {score}pt | 1号艇AI勝率: {ai_rate}%"
-      )
-
-  print("-" * 89)
-  print(
-      " 💡 設定された条件を満たす、資金配分に適したレースを抽出しています。\n"
-      + "=" * 89
-  )
-  print("\n\n")
-
-  # 2. 詳細部分の表示（場ごと、レースごと）
-  for venue, group in grouped:
-    print(
-        "#" * 89
-        + f"\n 🏟️ 【レース場: {venue}】 の勝負レース一覧 ({len(group)}件)\n"
-        + "#" * 89
-        + "\n"
-    )
-
-    for _, row in group.iterrows():
-      r_num = row["R"]
-      deadline = row["締切時間"]
-      score = row["スコア"]
-
-      print("-" * 89)
-      print(
-          f" 🏁 【{venue} - {date_str}_{venue}_{r_num}R】 3連単"
-          " 予想上位6位 （勝負レース指定）"
-      )
-      print(f" ⏱️ 【締切時間】         : {deadline}")
-      print("-" * 89)
-      print(f" 📊 【レース自信度・評価】 : ★★★★★ (極・鉄板)")
-      print(f" 📈 【総合スコア目安】     : {score} pt")
-      print(
-          " 📝 【状態・レース傾向】   : 1号艇の逃げ条件が完璧。壁も盤石で波乱要素が極めて少ない。"
-      )
-      print(
-          " 💡 【推奨アクション】     : 本命固定（1-2, 1-3中心） / 勝負レース指定"
-      )
-      print("=" * 89)
-
-      # 3連単テーブルヘッダー
-      print(
-          "順位   | 【予想】(アンサンブル)       | 【比較1】場限定      |"
-          " 【比較2】       "
-      )
-      print("-" * 80)
-
-      # ※ Excel側に順位ごとの予想データ（例: 1位予想, 2位予想...）が
-      # カラムとして入っている想定でループ、または固定テキストを差し込み
-      for rank in range(1, 7):
-        # サンプルとして列名が存在する場合の取得処理（適宜カラム名に変更してください）
-        pred_ens = row.get(
-            f"{rank}位_アンサンブル", "1-2-4 (6.8%)"
-        )  // 例
-        pred_loc = row.get(f"{rank}位_場限定", "1-4-2 (7.0%)")
-        pred_nat = row.get(f"{rank}位_全国", "1-2-3 (8.6%)")
-
-        print(
-            f"{rank}位    | {pred_ens:<28} | {pred_loc:<20} | {pred_nat:<15}"
-        )
-
-      print("=" * 89 + "\n")
-
+    # 4. 詳細レース一覧表示
+    for venue, group in grouped:
+        print("#" * 89)
+        print(f" 🏟️ 【レース場: {venue}】 の勝負レース一覧 ({len(group)}件)")
+        print("#" * 89 + "\n")
+        
+        for _, row in group.iterrows():
+            print("-" * 89)
+            print(f" 🏁 【{venue} - {date_str_disp}_{venue}_{row['R']}R】 3連単 予想上位6位 （勝負レース指定）")
+            print(f" ⏱️ 【締切時間】         : {row['締切時間']}")
+            print("-" * 89)
+            print(f" 📊 【レース自信度・評価】 : ★★★★★ (極・鉄板)")
+            print(f" 📈 【総合スコア目安】     : {row['スコア']} pt")
+            print(f" 📝 【状態・レース傾向】   : 1号艇の逃げ条件が完璧。壁も盤石で波乱要素が極めて少ない。")
+            print(f" 💡 【推奨アクション】     : 本命固定（1-2, 1-3中心） / 勝負レース指定")
+            print("=" * 89)
+            print("順位   | 【予想】(アンサンブル)       | 【比較1】場限定      | 【比較2】全国       ")
+            print("-" * 80)
+            
+            # 各順位のデータをExcelの列名（例: 1位_アンサンブル など）から取得
+            for i in range(1, 7):
+                pred_ens = row.get(f"{i}位_アンサンブル", "---")
+                pred_loc = row.get(f"{i}位_場限定", "---")
+                pred_nat = row.get(f"{i}位_全国", "---")
+                print(f"{i}位    | {str(pred_ens):<28} | {str(pred_loc):<20} | {str(pred_nat):<15}")
+            
+            print("=" * 89 + "\n")
 
 if __name__ == "__main__":
-  # 実行例
-  target_file = "shobu_races_20260811.xlsx"
-  load_and_display_shobu_races(target_file)
+    main()
