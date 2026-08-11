@@ -20,10 +20,11 @@ def read_root():
 @app.get("/results")
 def get_results(limit: int = 10):
     """
-    results_all テーブルから指定件数のデータを取得するAPI
+    shobu_races_prediction テーブルから指定件数のデータを取得するAPI
     """
     try:
-        query = f"SELECT * FROM results_all LIMIT {limit}"
+        # 参照先のテーブルを shobu_races_prediction に変更
+        query = f"SELECT * FROM shobu_races_prediction LIMIT {limit}"
         df = pd.read_sql(query, engine)
         data = df.to_dict(orient="records")
         return {"status": "success", "count": len(data), "data": data}
