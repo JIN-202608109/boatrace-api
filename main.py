@@ -34,10 +34,17 @@ def get_results(limit: int = 1000):
         # 各レコードの予想データを処理
         processed_data = []
         for record in records:
-            # もし「上位予想」のようなリストデータが含まれるキーがあればここでスライスする
-            # ※お使いのDBの実際のカラム名に合わせて'top_predictions'を書き換えてください
-            if 'top_predictions' in record and isinstance(record['top_predictions'], list):
-                record['top_predictions'] = record['top_predictions'][:6]
+            # データベースのカラム名や格納形式（JSON文字列など）に合わせて柔軟にスライス
+            for key in ['top_predictions', '順位']:
+                if key in record and isinstance(record[key], list):
+                    record[key] = record[key][:6]
+                elif key in record and isinstance(record[key], str):
+                    try:
+                        parsed = json.loads(record[key])
+                        if isinstance(parsed, list):
+                            record[key] = json.dumps(parsed[:6], ensure_ascii=False)
+                    except Exception:
+                        pass
             
             processed_data.append(record)
             
