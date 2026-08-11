@@ -18,12 +18,12 @@ def read_root():
     return {"message": "Welcome to Boatrace API on Render & Supabase!"}
 
 @app.get("/results")
-def get_results(limit: int = 200):
+def get_results(limit: int = 1000):
     """
     shobu_races_prediction テーブルからデータを取得するAPI
     """
     try:
-        # LIMITを増やし、必要に応じて並び順を指定（例ではそのまま全件取得または必要数）
+        # すべての会場データ（160件以上）が含まれるよう、デフォルトのLIMITを1000に設定
         query = f"SELECT * FROM shobu_races_prediction LIMIT {limit}"
         df = pd.read_sql(query, engine)
         data = df.to_dict(orient="records")
