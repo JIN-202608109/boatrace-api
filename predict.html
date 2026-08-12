@@ -4,61 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ボートレース AI厳選予想分析レポート - 2026年08月12日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #0b5ed7;
-            --accent-color: #d63384;
-            --bg-color: #f4f7f6;
+            --primary-color: #ff6b81;
+            --primary-hover: #ff4757;
+            --secondary-color: #70a1ff;
+            --accent-color: #ff7f50;
+            --bg-color: #fff9fa;
             --card-bg: #ffffff;
-            --text-color: #212529;
-            --text-muted: #6c757d;
-            --border-color: #dee2e6;
-            --star-gold: #ffc107;
-            --badge-bg: #e7f1ff;
-            --badge-text: #0c63e4;
+            --text-main: #4a4a4a;
+            --text-sub: #7d7d7d;
+            --border-color: #ffeaa7;
+            --star-gold: #ffa502;
+            --badge-pink: #ffe0e6;
+            --badge-text: #d63031;
+            --shadow-soft: 0 8px 20px rgba(255, 182, 193, 0.25);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+            font-family: 'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.5;
-            padding: 15px;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px 15px;
         }
 
-        .container { max-width: 650px; margin: 0 auto; }
+        .container { max-width: 620px; margin: 0 auto; }
 
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
             color: #ffffff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 25px 20px;
+            border-radius: 24px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
         }
-        header h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 5px; }
-        header p { font-size: 0.85rem; opacity: 0.9; }
+        header h1 {
+            font-family: 'Kiwi Maru', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        header p {
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.4);
+            display: inline-block;
+            padding: 3px 14px;
+            border-radius: 20px;
+            color: #574b90;
+            font-weight: 700;
+        }
 
         .summary-card {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 15px 20px;
+            border-radius: 20px;
+            padding: 20px;
             margin-bottom: 25px;
-            border-left: 5px solid var(--primary-color);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            border: 3px solid #ffeaa7;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
         }
-        .summary-card h2 { font-size: 1.1rem; margin-bottom: 8px; color: #1e3c72; }
-        .summary-card p { font-size: 0.9rem; color: var(--text-muted); }
+        .summary-card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: #ff6b81;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .summary-card p { font-size: 0.88rem; color: var(--text-sub); }
+        .summary-highlight {
+            margin-top: 10px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #ff4757;
+            background: #fff0f3;
+            padding: 8px;
+            border-radius: 12px;
+            display: inline-block;
+            width: 100%;
+        }
 
         .place-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #1e3c72;
-            margin: 25px 0 12px 0;
-            padding-left: 10px;
-            border-left: 4px solid #1e3c72;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ff6b81;
+            margin: 30px 0 15px 0;
+            padding: 5px 15px;
+            background: #fff;
+            border-radius: 15px;
+            border-left: 6px solid #ff6b81;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -66,136 +110,159 @@
 
         .race-card {
             background: var(--card-bg);
-            border-radius: 12px;
-            margin-bottom: 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            border: 2px solid #f8efba;
         }
 
         .race-header {
-            background: #f8f9fa;
-            padding: 12px 16px;
-            border-bottom: 1px solid var(--border-color);
+            background: #fff5f5;
+            padding: 14px 18px;
+            border-bottom: 2px dashed #ffeaa7;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 8px;
         }
-        .race-num { font-size: 1.1rem; font-weight: 700; color: #0d6efd; }
+        .race-num {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ff4757;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
         .race-deadline {
             font-size: 0.85rem;
-            background: #fff;
-            padding: 3px 8px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
+            background: #ffffff;
+            padding: 4px 12px;
+            border-radius: 15px;
+            border: 1.5px solid #ff7f50;
+            color: #ff7f50;
+            font-weight: 700;
         }
 
-        .race-body { padding: 16px; }
+        .race-body { padding: 18px; }
 
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
         .metric-box {
-            background: #f8f9fa;
-            padding: 8px 12px;
-            border-radius: 8px;
+            background: #fdfaf7;
+            padding: 10px 8px;
+            border-radius: 14px;
             text-align: center;
+            border: 1px solid #f8efba;
         }
-        .metric-label { font-size: 0.75rem; color: var(--text-muted); display: block; }
-        .metric-val { font-size: 1.1rem; font-weight: 700; }
-        .val-star { color: var(--star-gold); font-size: 1rem; }
-        .val-score { color: #d63384; }
+        .metric-label { font-size: 0.75rem; color: var(--text-sub); font-weight: 700; display: block; margin-bottom: 2px; }
+        .metric-val { font-size: 1.1rem; font-weight: 800; }
+        .val-star { color: var(--star-gold); font-size: 0.95rem; letter-spacing: -1px; }
+        .val-score { color: #ff6b81; }
 
         .status-box {
-            background: var(--badge-bg);
-            color: var(--badge-text);
-            padding: 10px 12px;
-            border-radius: 6px;
+            background: #fff0f3;
+            color: #d63031;
+            padding: 12px 15px;
+            border-radius: 14px;
             font-size: 0.85rem;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            border: 1px solid #ffccd5;
         }
-        .status-box strong { display: inline-block; margin-right: 5px; }
+        .status-box strong {
+            background: #ff4757;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            margin-right: 6px;
+            display: inline-block;
+        }
 
-        .table-container { overflow-x: auto; }
+        .table-container {
+            overflow-x: auto;
+            border-radius: 14px;
+            border: 1px solid #ffeaa7;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9rem;
             text-align: center;
+            background: #fff;
         }
         th {
-            background-color: #f1f3f5;
-            color: #495057;
+            background-color: #fff9e6;
+            color: #d63031;
             padding: 10px 8px;
-            font-weight: 600;
-            border-bottom: 2px solid var(--border-color);
+            font-weight: 700;
+            border-bottom: 2px solid #ffeaa7;
             white-space: nowrap;
         }
         td {
             padding: 10px 8px;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid #f8efba;
             white-space: nowrap;
         }
-        tr:nth-child(even) { background-color: #fafafa; }
-        tr:hover { background-color: #f1f3f5; }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background-color: #fffdf9; }
 
         .rank-badge {
             display: inline-block;
-            width: 22px;
-            height: 22px;
-            line-height: 22px;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
             border-radius: 50%;
-            background: #6c757d;
+            background: #a4b0be;
             color: #fff;
             font-size: 0.75rem;
-            font-weight: bold;
+            font-weight: 800;
         }
-        tr:nth-child(1) .rank-badge { background: #d63384; }
-        tr:nth-child(2) .rank-badge { background: #0d6efd; }
-        tr:nth-child(3) .rank-badge { background: #198754; }
+        tr:nth-child(1) .rank-badge { background: #ff4757; box-shadow: 0 2px 6px rgba(255,71,87,0.4); }
+        tr:nth-child(2) .rank-badge { background: #ffa502; box-shadow: 0 2px 6px rgba(255,165,2,0.4); }
+        tr:nth-child(3) .rank-badge { background: #2ed573; box-shadow: 0 2px 6px rgba(46,213,115,0.4); }
 
-        .combo-main { font-weight: bold; font-size: 1.05rem; color: #212529; }
-        .prob-val { color: var(--primary-color); font-weight: 600; font-size: 0.9rem; margin-left: 8px; }
+        .combo-main { font-weight: 800; font-size: 1.05rem; color: #2f3542; letter-spacing: 0.5px; }
+        .prob-val { color: #ff6b81; font-weight: 800; font-size: 0.95rem; }
 
         footer {
             text-align: center;
-            padding: 20px 0;
+            padding: 20px 10px;
             font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 30px;
+            color: var(--text-sub);
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🚤 AI 厳選予想分析レポート</h1>
-            <p>発行日: 2026年08月12日 | 対象場: 全場対象</p>
+            <h1>🎀 ボートレース AI厳選予想</h1>
+            <p>🗓️ 2026年08月12日 | 📍 対象場: 全場対象</p>
         </header>
 
         <section class="summary-card">
-            <h2>🎯 本日の厳選抽出結果</h2>
-            <p>抽出基準：総合スコア <strong>85pt</strong> 以上 ＆ 1号艇AI勝率 <strong>75%</strong> 以上</p>
-            <p style="margin-top: 5px; font-weight: bold; color: #1e3c72;">
-                👉 厳選勝負対象: 8 レース
-            </p>
+            <h2>✨ 本日のラッキー厳選レース ✨</h2>
+            <p>抽出条件：総合スコア <strong>85pt</strong> 以上 ＆ 1号艇勝率 <strong>75%</strong> 以上</p>
+            <div class="summary-highlight">
+                💖 勝負おすすめ: 全 8 レース
+            </div>
         </section>
 
         <div class="place-title">
             <span>🚤 桐生 レース場</span>
-            <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">対象 1件</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: #ffa502;">全 1 件</span>
         </div>
 
         <article class="race-card">
             <div class="race-header">
-                <span class="race-num">第 12 レース (2026年8月12日_桐生_12R)</span>
-                <span class="race-deadline">⏱️ 締切予定: 20:31</span>
+                <span class="race-num">🌸 第 12 レース <small style="font-size:0.75rem; color:#a4b0be; font-weight:normal;">(2026年8月12日_桐生_12R)</small></span>
+                <span class="race-deadline">⏰ 締切 20:31</span>
             </div>
             <div class="race-body">
                 <div class="metrics-grid">
@@ -205,17 +272,17 @@
                     </div>
                     <div class="metric-box">
                         <span class="metric-label">総合スコア</span>
-                        <span class="metric-val val-score">100 <small style="font-size:0.7rem;">pt</small></span>
+                        <span class="metric-val val-score">100<small style="font-size:0.75rem;">pt</small></span>
                     </div>
                     <div class="metric-box">
-                        <span class="metric-label">1号艇 AI勝率</span>
-                        <span class="metric-val" style="color:#0d6efd;">80.6%</span>
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:#70a1ff;">80.6%</span>
                     </div>
                 </div>
 
                 <div class="status-box">
-                    <div><strong>【判定】</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
-                    <div style="margin-top: 3px;"><strong>【推奨】</strong> 本命完全勝負</div>
+                    <div style="margin-bottom: 4px;"><strong>状態</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
                 </div>
 
                 <div class="table-container">
@@ -223,7 +290,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20%;">順位</th>
-                                <th style="width: 50%;">🎯 推奨買い目</th>
+                                <th style="width: 50%;">🎯 おすすめ買い目</th>
                                 <th style="width: 30%;">予測確率</th>
                             </tr>
                         </thead>
@@ -273,13 +340,13 @@
 
         <div class="place-title">
             <span>🚤 唐津 レース場</span>
-            <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">対象 4件</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: #ffa502;">全 4 件</span>
         </div>
 
         <article class="race-card">
             <div class="race-header">
-                <span class="race-num">第 1 レース (2026年8月12日_唐津_1R)</span>
-                <span class="race-deadline">⏱️ 締切予定: 08:44</span>
+                <span class="race-num">🌸 第 1 レース <small style="font-size:0.75rem; color:#a4b0be; font-weight:normal;">(2026年8月12日_唐津_1R)</small></span>
+                <span class="race-deadline">⏰ 締切 08:44</span>
             </div>
             <div class="race-body">
                 <div class="metrics-grid">
@@ -289,17 +356,17 @@
                     </div>
                     <div class="metric-box">
                         <span class="metric-label">総合スコア</span>
-                        <span class="metric-val val-score">85 <small style="font-size:0.7rem;">pt</small></span>
+                        <span class="metric-val val-score">85<small style="font-size:0.75rem;">pt</small></span>
                     </div>
                     <div class="metric-box">
-                        <span class="metric-label">1号艇 AI勝率</span>
-                        <span class="metric-val" style="color:#0d6efd;">86.5%</span>
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:#70a1ff;">86.5%</span>
                     </div>
                 </div>
 
                 <div class="status-box">
-                    <div><strong>【判定】</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
-                    <div style="margin-top: 3px;"><strong>【推奨】</strong> 本命完全勝負</div>
+                    <div style="margin-bottom: 4px;"><strong>状態</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
                 </div>
 
                 <div class="table-container">
@@ -307,7 +374,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20%;">順位</th>
-                                <th style="width: 50%;">🎯 推奨買い目</th>
+                                <th style="width: 50%;">🎯 おすすめ買い目</th>
                                 <th style="width: 30%;">予測確率</th>
                             </tr>
                         </thead>
@@ -357,8 +424,8 @@
 
         <article class="race-card">
             <div class="race-header">
-                <span class="race-num">第 10 レース (2026年8月12日_唐津_10R)</span>
-                <span class="race-deadline">⏱️ 締切予定: 13:12</span>
+                <span class="race-num">🌸 第 10 レース <small style="font-size:0.75rem; color:#a4b0be; font-weight:normal;">(2026年8月12日_唐津_10R)</small></span>
+                <span class="race-deadline">⏰ 締切 13:12</span>
             </div>
             <div class="race-body">
                 <div class="metrics-grid">
@@ -368,17 +435,17 @@
                     </div>
                     <div class="metric-box">
                         <span class="metric-label">総合スコア</span>
-                        <span class="metric-val val-score">85 <small style="font-size:0.7rem;">pt</small></span>
+                        <span class="metric-val val-score">85<small style="font-size:0.75rem;">pt</small></span>
                     </div>
                     <div class="metric-box">
-                        <span class="metric-label">1号艇 AI勝率</span>
-                        <span class="metric-val" style="color:#0d6efd;">89.4%</span>
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:#70a1ff;">89.4%</span>
                     </div>
                 </div>
 
                 <div class="status-box">
-                    <div><strong>【判定】</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
-                    <div style="margin-top: 3px;"><strong>【推奨】</strong> 本命完全勝負</div>
+                    <div style="margin-bottom: 4px;"><strong>状態</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
                 </div>
 
                 <div class="table-container">
@@ -386,7 +453,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20%;">順位</th>
-                                <th style="width: 50%;">🎯 推奨買い目</th>
+                                <th style="width: 50%;">🎯 おすすめ買い目</th>
                                 <th style="width: 30%;">予測確率</th>
                             </tr>
                         </thead>
@@ -436,8 +503,8 @@
 
         <article class="race-card">
             <div class="race-header">
-                <span class="race-num">第 11 レース (2026年8月12日_唐津_11R)</span>
-                <span class="race-deadline">⏱️ 締切予定: 13:50</span>
+                <span class="race-num">🌸 第 11 レース <small style="font-size:0.75rem; color:#a4b0be; font-weight:normal;">(2026年8月12日_唐津_11R)</small></span>
+                <span class="race-deadline">⏰ 締切 13:50</span>
             </div>
             <div class="race-body">
                 <div class="metrics-grid">
@@ -447,17 +514,17 @@
                     </div>
                     <div class="metric-box">
                         <span class="metric-label">総合スコア</span>
-                        <span class="metric-val val-score">98 <small style="font-size:0.7rem;">pt</small></span>
+                        <span class="metric-val val-score">98<small style="font-size:0.75rem;">pt</small></span>
                     </div>
                     <div class="metric-box">
-                        <span class="metric-label">1号艇 AI勝率</span>
-                        <span class="metric-val" style="color:#0d6efd;">89.9%</span>
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:#70a1ff;">89.9%</span>
                     </div>
                 </div>
 
                 <div class="status-box">
-                    <div><strong>【判定】</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
-                    <div style="margin-top: 3px;"><strong>【推奨】</strong> 本命完全勝負</div>
+                    <div style="margin-bottom: 4px;"><strong>状態</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
                 </div>
 
                 <div class="table-container">
@@ -465,7 +532,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20%;">順位</th>
-                                <th style="width: 50%;">🎯 推奨買い目</th>
+                                <th style="width: 50%;">🎯 おすすめ買い目</th>
                                 <th style="width: 30%;">予測確率</th>
                             </tr>
                         </thead>
@@ -515,8 +582,8 @@
 
         <article class="race-card">
             <div class="race-header">
-                <span class="race-num">第 12 レース (2026年8月12日_唐津_12R)</span>
-                <span class="race-deadline">⏱️ 締切予定: 14:30</span>
+                <span class="race-num">🌸 第 12 レース <small style="font-size:0.75rem; color:#a4b0be; font-weight:normal;">(2026年8月12日_唐津_12R)</small></span>
+                <span class="race-deadline">⏰ 締切 14:30</span>
             </div>
             <div class="race-body">
                 <div class="metrics-grid">
@@ -526,17 +593,17 @@
                     </div>
                     <div class="metric-box">
                         <span class="metric-label">総合スコア</span>
-                        <span class="metric-val val-score">93 <small style="font-size:0.7rem;">pt</small></span>
+                        <span class="metric-val val-score">93<small style="font-size:0.75rem;">pt</small></span>
                     </div>
                     <div class="metric-box">
-                        <span class="metric-label">1号艇 AI勝率</span>
-                        <span class="metric-val" style="color:#0d6efd;">88.2%</span>
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:#70a1ff;">88.2%</span>
                     </div>
                 </div>
 
                 <div class="status-box">
-                    <div><strong>【判定】</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
-                    <div style="margin-top: 3px;"><strong>【推奨】</strong> 本命完全勝負</div>
+                    <div style="margin-bottom: 4px;"><strong>状態</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
                 </div>
 
                 <div class="table-container">
@@ -544,7 +611,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20%;">順位</th>
-                                <th style="width: 50%;">🎯 推奨買い目</th>
+                                <th style="width: 50%;">🎯 おすすめ買い目</th>
                                 <th style="width: 30%;">予測確率</th>
                             </tr>
                         </thead>
@@ -594,13 +661,13 @@
 
         <div class="place-title">
             <span>🚤 芦屋 レース場</span>
-            <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">対象 1件</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: #ffa502;">全 1 件</span>
         </div>
 
         <article class="race-card">
             <div class="race-header">
-                <span class="race-num">第 12 レース (2026年8月12日_芦屋_12R)</span>
-                <span class="race-deadline">⏱️ 締切予定: 14:02</span>
+                <span class="race-num">🌸 第 12 レース <small style="font-size:0.75rem; color:#a4b0be; font-weight:normal;">(2026年8月12日_芦屋_12R)</small></span>
+                <span class="race-deadline">⏰ 締切 14:02</span>
             </div>
             <div class="race-body">
                 <div class="metrics-grid">
@@ -610,17 +677,17 @@
                     </div>
                     <div class="metric-box">
                         <span class="metric-label">総合スコア</span>
-                        <span class="metric-val val-score">93 <small style="font-size:0.7rem;">pt</small></span>
+                        <span class="metric-val val-score">93<small style="font-size:0.75rem;">pt</small></span>
                     </div>
                     <div class="metric-box">
-                        <span class="metric-label">1号艇 AI勝率</span>
-                        <span class="metric-val" style="color:#0d6efd;">85.2%</span>
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:#70a1ff;">85.2%</span>
                     </div>
                 </div>
 
                 <div class="status-box">
-                    <div><strong>【判定】</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
-                    <div style="margin-top: 3px;"><strong>【推奨】</strong> 本命完全勝負</div>
+                    <div style="margin-bottom: 4px;"><strong>状態</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
                 </div>
 
                 <div class="table-container">
@@ -628,7 +695,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20%;">順位</th>
-                                <th style="width: 50%;">🎯 推奨買い目</th>
+                                <th style="width: 50%;">🎯 おすすめ買い目</th>
                                 <th style="width: 30%;">予測確率</th>
                             </tr>
                         </thead>
@@ -678,13 +745,13 @@
 
         <div class="place-title">
             <span>🚤 下関 レース場</span>
-            <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">対象 1件</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: #ffa502;">全 1 件</span>
         </div>
 
         <article class="race-card">
             <div class="race-header">
-                <span class="race-num">第 11 レース (2026年8月12日_下関_11R)</span>
-                <span class="race-deadline">⏱️ 締切予定: 22:05</span>
+                <span class="race-num">🌸 第 11 レース <small style="font-size:0.75rem; color:#a4b0be; font-weight:normal;">(2026年8月12日_下関_11R)</small></span>
+                <span class="race-deadline">⏰ 締切 22:05</span>
             </div>
             <div class="race-body">
                 <div class="metrics-grid">
@@ -694,17 +761,17 @@
                     </div>
                     <div class="metric-box">
                         <span class="metric-label">総合スコア</span>
-                        <span class="metric-val val-score">93 <small style="font-size:0.7rem;">pt</small></span>
+                        <span class="metric-val val-score">93<small style="font-size:0.75rem;">pt</small></span>
                     </div>
                     <div class="metric-box">
-                        <span class="metric-label">1号艇 AI勝率</span>
-                        <span class="metric-val" style="color:#0d6efd;">84.7%</span>
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:#70a1ff;">84.7%</span>
                     </div>
                 </div>
 
                 <div class="status-box">
-                    <div><strong>【判定】</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
-                    <div style="margin-top: 3px;"><strong>【推奨】</strong> 本命完全勝負</div>
+                    <div style="margin-bottom: 4px;"><strong>状態</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
                 </div>
 
                 <div class="table-container">
@@ -712,7 +779,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20%;">順位</th>
-                                <th style="width: 50%;">🎯 推奨買い目</th>
+                                <th style="width: 50%;">🎯 おすすめ買い目</th>
                                 <th style="width: 30%;">予測確率</th>
                             </tr>
                         </thead>
@@ -762,13 +829,13 @@
 
         <div class="place-title">
             <span>🚤 児島 レース場</span>
-            <span style="font-size: 0.85rem; font-weight: normal; color: var(--text-muted);">対象 1件</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: #ffa502;">全 1 件</span>
         </div>
 
         <article class="race-card">
             <div class="race-header">
-                <span class="race-num">第 12 レース (2026年8月12日_児島_12R)</span>
-                <span class="race-deadline">⏱️ 締切予定: 16:50</span>
+                <span class="race-num">🌸 第 12 レース <small style="font-size:0.75rem; color:#a4b0be; font-weight:normal;">(2026年8月12日_児島_12R)</small></span>
+                <span class="race-deadline">⏰ 締切 16:50</span>
             </div>
             <div class="race-body">
                 <div class="metrics-grid">
@@ -778,17 +845,17 @@
                     </div>
                     <div class="metric-box">
                         <span class="metric-label">総合スコア</span>
-                        <span class="metric-val val-score">85 <small style="font-size:0.7rem;">pt</small></span>
+                        <span class="metric-val val-score">85<small style="font-size:0.75rem;">pt</small></span>
                     </div>
                     <div class="metric-box">
-                        <span class="metric-label">1号艇 AI勝率</span>
-                        <span class="metric-val" style="color:#0d6efd;">87.0%</span>
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:#70a1ff;">87.0%</span>
                     </div>
                 </div>
 
                 <div class="status-box">
-                    <div><strong>【判定】</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
-                    <div style="margin-top: 3px;"><strong>【推奨】</strong> 本命完全勝負</div>
+                    <div style="margin-bottom: 4px;"><strong>状態</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
                 </div>
 
                 <div class="table-container">
@@ -796,7 +863,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 20%;">順位</th>
-                                <th style="width: 50%;">🎯 推奨買い目</th>
+                                <th style="width: 50%;">🎯 おすすめ買い目</th>
                                 <th style="width: 30%;">予測確率</th>
                             </tr>
                         </thead>
@@ -845,7 +912,7 @@
         </article>
 
         <footer>
-            <p>※本レポートはAIによる自動解析結果であり、的中を保証するものではありません。舟券の購入は自己責任で行ってください。</p>
+            <p>※本レポートはAIによる自動分析結果です。的中を保証するものではありませんので、舟券のご購入は無理のない範囲でお楽しみくださいね♪</p>
         </footer>
     </div>
 </body>
