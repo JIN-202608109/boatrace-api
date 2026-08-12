@@ -79,7 +79,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 3.5rem 1.5rem;
+            padding: 3rem 1.2rem;
             position: relative;
             z-index: 1;
         }
@@ -89,7 +89,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             position: relative;
         }
 
@@ -136,7 +136,7 @@
             letter-spacing: 2px;
             padding: 0.5rem 1.6rem;
             border-radius: 30px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             display: inline-block;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(5px);
@@ -144,12 +144,12 @@
 
         .hero h1 {
             font-family: 'Noto Serif JP', serif;
-            font-size: 2.3rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             line-height: 1.6;
             color: #ffffff;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
         }
 
@@ -161,12 +161,12 @@
         }
 
         .hero p {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: #b0c4b1;
-            max-width: 520px;
-            margin-bottom: 2.8rem;
-            line-height: 1.9;
-            letter-spacing: 1px;
+            max-width: 480px;
+            margin-bottom: 2.2rem;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
         }
 
         /* プレミアム・金運ゴールドボタン */
@@ -177,10 +177,10 @@
             gap: 0.8rem;
             background: linear-gradient(135deg, #bf953f 0%, #d4af37 50%, #aa771c 100%);
             color: #05190e;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 800;
-            letter-spacing: 2px;
-            padding: 1.2rem 3.5rem;
+            letter-spacing: 1px;
+            padding: 1.1rem 2.5rem;
             border-radius: 4px;
             text-decoration: none;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -188,6 +188,8 @@
             position: relative;
             border: 1px solid #fcf6ba;
             overflow: hidden;
+            width: 100%;
+            max-width: 360px;
         }
 
         .btn-prediction::before {
@@ -220,20 +222,18 @@
         .features {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 3.5rem;
-            flex-wrap: wrap;
-            max-width: 850px;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-direction: column;
+            max-width: 420px;
             width: 100%;
         }
 
         .card {
             background: rgba(13, 40, 24, 0.55);
             backdrop-filter: blur(12px);
-            padding: 1.8rem 1.5rem;
+            padding: 1.5rem 1.2rem;
             border-radius: 8px;
-            flex: 1;
-            min-width: 240px;
             border: 1px solid rgba(212, 175, 55, 0.25);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             text-align: center;
@@ -242,30 +242,30 @@
 
         .card:hover {
             border-color: rgba(212, 175, 55, 0.65);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
         .card-icon {
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.8rem;
+            margin-bottom: 0.6rem;
             filter: drop-shadow(0 2px 5px rgba(212, 175, 55, 0.4));
         }
 
         .card h3 {
             color: #fcf6ba;
-            margin-bottom: 0.8rem;
-            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
             font-weight: 700;
             letter-spacing: 1px;
             font-family: 'Noto Serif JP', serif;
         }
 
         .card p {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: #b0c4b1;
             margin-bottom: 0;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         /* フッター */
@@ -279,6 +279,31 @@
             letter-spacing: 1px;
             position: relative;
             z-index: 10;
+        }
+
+        /* PC表示などの少し大きい画面ではカードを横並びにする */
+        @media (min-width: 768px) {
+            .hero {
+                padding: 3.5rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .features {
+                flex-direction: row;
+                max-width: 850px;
+                gap: 1.5rem;
+            }
+            .card {
+                flex: 1;
+                text-align: center;
+                padding: 1.8rem 1.5rem;
+            }
+            .btn-prediction {
+                width: auto;
+                padding: 1.2rem 3.5rem;
+                font-size: 1.25rem;
+            }
         }
     </style>
 </head>
@@ -341,54 +366,51 @@
             <div class="lucky-charms">🔮 🐱 🍀 🪭 🔨 💰</div>
         </div>
 
-        <div class="hero-badge">AMABIE BLESSING × HIGH PRECISION AI</div>
+        <div class="hero-badge">SMART DATA & EXCITING RACE</div>
 
-        <!-- 読みやすさを重視した改行入り見出し -->
+        <!-- スマホで自然に改行される見出し -->
         <h1>
-            勝利へ導く<br>
-            圧倒的精度<br>
-            <span>ボートレースAI解析</span>
+            水上の駆け引きを<br>
+            もっと楽しむための<br>
+            <span>スマートレース分析</span>
         </h1>
 
-        <!-- テンポよく読める改行入りテキスト -->
+        <!-- スマホの画面幅に合わせてスッキリ収まるテキスト -->
         <p>
-            厳選された最新アルゴリズムが<br>
-            会場特性・モーター・展開を深層分析。<br>
-            極上の予想体験をお届けします。
+            会場の特性やモーターの気配をデータでスマートに解説。<br>
+            推しの選手やレース観戦がもっとワクワクする、<br>
+            新しい楽しみ方をお届けします。
         </p>
 
         <!-- 「今日の予想を見る」ボタン -->
         <a href="race_prediction.html" class="btn-prediction">
-            本日の厳選予想を見る ➔
+            本日の予想レポートを見る ➔
         </a>
 
-        <!-- 改行を整えた特徴カード -->
+        <!-- スマホでは縦並び、PCでは横並びになる特徴カード -->
         <div class="features">
             <div class="card">
                 <div class="card-icon">⚡</div>
-                <h3>高精度データ解析</h3>
+                <h3>スマートデータ</h3>
                 <p>
-                    会場特性や風配<br>
-                    モーター評価値を<br>
-                    リアルタイムに統合・算出
+                    水面コンディションやモーターの気配を<br>
+                    わかりやすく整理してピックアップ
                 </p>
             </div>
             <div class="card">
                 <div class="card-icon">🎯</div>
-                <h3>厳選された最適買い目</h3>
+                <h3>見所ピックアップ</h3>
                 <p>
-                    無駄を限界まで削ぎ落とし<br>
-                    回収期待値の高い買い目を<br>
-                    ダイレクトに提示
+                    イン逃げの行方や展開のポイントを<br>
+                    シンプルにまとめてレース観戦をサポート
                 </p>
             </div>
             <div class="card">
                 <div class="card-icon">🏆</div>
-                <h3>開運・的中祈願</h3>
+                <h3>ワクワクする観戦体験</h3>
                 <p>
-                    あまびえと幸運を招く<br>
-                    開運モチーフが<br>
-                    あなたの勝負運を格上げ
+                    事前のデータを少し知るだけで<br>
+                    勝負の瞬間や駆け引きがもっとエキサイティングに
                 </p>
             </div>
         </div>
