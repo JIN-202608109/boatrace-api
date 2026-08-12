@@ -16,8 +16,8 @@
         }
 
         body {
-            /* 深みのあるダークネイビー〜ブラックの最高級グラデーション */
-            background: radial-gradient(circle at 50% 0%, #1a2332 0%, #0d1117 70%, #05070a 100%);
+            /* 金運を引き寄せる深緑（エメラルド〜ダークグリーン）グラデーション */
+            background: radial-gradient(circle at 50% 0%, #0d2818 0%, #05190e 70%, #020a05 100%);
             color: #e6edf3;
             font-family: 'M PLUS 1p', sans-serif;
             display: flex;
@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* レース感を出す背景の水面・光のスピードラインライン演出 */
+        /* レース感・水面をあしらったゴールドのメッシュ背景 */
         body::before {
             content: "";
             position: absolute;
@@ -35,8 +35,8 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(45deg, transparent 49%, rgba(212, 175, 55, 0.03) 50%, transparent 51%),
-                linear-gradient(-45deg, transparent 49%, rgba(212, 175, 55, 0.03) 50%, transparent 51%);
+                linear-gradient(45deg, transparent 49%, rgba(212, 175, 55, 0.04) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(212, 175, 55, 0.04) 50%, transparent 51%);
             background-size: 60px 60px;
             pointer-events: none;
             z-index: 0;
@@ -44,14 +44,14 @@
 
         /* ヘッダー */
         header {
-            background: rgba(13, 17, 23, 0.85);
+            background: rgba(5, 25, 14, 0.85);
             backdrop-filter: blur(10px);
             padding: 1.2rem 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             position: relative;
             z-index: 10;
         }
@@ -61,7 +61,7 @@
             font-size: 1.3rem;
             font-weight: 700;
             letter-spacing: 3px;
-            /* ゴールドグラデーションテキスト */
+            /* 煌めくゴールドグラデーションテキスト */
             background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -84,7 +84,7 @@
             z-index: 1;
         }
 
-        /* 🌸 開運・神聖なあまびえエリア */
+        /* 🌸 開運・深緑×ゴールドあまびえエリア */
         .kaiun-container {
             display: flex;
             flex-direction: column;
@@ -100,17 +100,17 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
+            width: 130px;
+            height: 130px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
             z-index: -1;
-            filter: blur(10px);
+            filter: blur(12px);
         }
 
         .amabie-svg {
             width: 95px;
             height: 95px;
-            filter: drop-shadow(0px 4px 12px rgba(212, 175, 55, 0.4));
+            filter: drop-shadow(0px 4px 15px rgba(212, 175, 55, 0.5));
             animation: float 4s ease-in-out infinite;
         }
 
@@ -123,12 +123,12 @@
             font-size: 1.1rem;
             margin-top: 0.6rem;
             letter-spacing: 8px;
-            opacity: 0.9;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+            opacity: 0.95;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
         }
 
         .hero-badge {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(170, 119, 28, 0.3) 100%);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(170, 119, 28, 0.35) 100%);
             border: 1px solid rgba(212, 175, 55, 0.6);
             color: #fcf6ba;
             font-size: 0.85rem;
@@ -138,16 +138,16 @@
             border-radius: 30px;
             margin-bottom: 1.5rem;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(5px);
         }
 
         .hero h1 {
             font-family: 'Noto Serif JP', serif;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 700;
-            margin-bottom: 1.2rem;
-            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
             color: #ffffff;
             letter-spacing: 2px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
@@ -162,35 +162,34 @@
 
         .hero p {
             font-size: 0.95rem;
-            color: #8b949e;
+            color: #b0c4b1;
             max-width: 520px;
             margin-bottom: 2.8rem;
-            line-height: 1.8;
+            line-height: 1.9;
             letter-spacing: 1px;
         }
 
-        /* プレミアム・ラグジュアリーボタン */
+        /* プレミアム・金運ゴールドボタン */
         .btn-prediction {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
             background: linear-gradient(135deg, #bf953f 0%, #d4af37 50%, #aa771c 100%);
-            color: #0d1117;
+            color: #05190e;
             font-size: 1.25rem;
             font-weight: 800;
             letter-spacing: 2px;
             padding: 1.2rem 3.5rem;
-            border-radius: 4px; /* 重厚感のあるシャープな角丸 */
+            border-radius: 4px;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
             border: 1px solid #fcf6ba;
             overflow: hidden;
         }
 
-        /* ボタン内の光の反射演出 */
         .btn-prediction::before {
             content: '';
             position: absolute;
@@ -208,7 +207,7 @@
 
         .btn-prediction:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.8);
             background: linear-gradient(135deg, #d4af37 0%, #fcf6ba 50%, #b38728 100%);
         }
 
@@ -217,7 +216,7 @@
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
 
-        /* 特徴カード（グラスモフィズム＆ゴールドフレーム） */
+        /* 特徴カード（深緑グラスモフィズム＆ゴールドフレーム） */
         .features {
             display: flex;
             justify-content: center;
@@ -229,34 +228,33 @@
         }
 
         .card {
-            background: rgba(22, 27, 34, 0.6);
+            background: rgba(13, 40, 24, 0.55);
             backdrop-filter: blur(12px);
             padding: 1.8rem 1.5rem;
             border-radius: 8px;
             flex: 1;
             min-width: 240px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.25);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             text-align: center;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .card:hover {
-            border-color: rgba(212, 175, 55, 0.6);
+            border-color: rgba(212, 175, 55, 0.65);
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
         .card-icon {
             font-size: 2rem;
             margin-bottom: 0.8rem;
-            filter: drop-shadow(0 2px 5px rgba(212, 175, 55, 0.3));
+            filter: drop-shadow(0 2px 5px rgba(212, 175, 55, 0.4));
         }
 
         .card h3 {
             color: #fcf6ba;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
             font-size: 1.05rem;
             font-weight: 700;
             letter-spacing: 1px;
@@ -264,19 +262,19 @@
         }
 
         .card p {
-            font-size: 0.85rem;
-            color: #8b949e;
+            font-size: 0.88rem;
+            color: #b0c4b1;
             margin-bottom: 0;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* フッター */
         footer {
-            background: #05070a;
+            background: #020a05;
             text-align: center;
             padding: 1.5rem;
             font-size: 0.75rem;
-            color: #484f58;
+            color: #4f6d57;
             border-top: 1px solid rgba(212, 175, 55, 0.15);
             letter-spacing: 1px;
             position: relative;
@@ -288,7 +286,7 @@
 
     <header>
         <div class="logo">
-            <!-- レース感を出すチェッカーフラッグ・アイコン -->
+            <!-- レース感をあしらったゴールドのチェッカーフラッグ -->
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4 15C4 15 5.5 14 8 14 C10.5 14 13.5 16 16 16 C18.5 16 20 15 20 15 V3 C20 3 18.5 4 16 4 C13.5 4 10.5 2 8 2 C5.5 2 4 3 4 3 V21" stroke="url(#gold-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <defs>
@@ -304,25 +302,24 @@
     </header>
 
     <main class="hero">
-        <!-- 🌸 開運・ラグジュアリー風あまびえ ＆ 縁起物 -->
+        <!-- 🌸 開運・深緑とゴールドに輝くあまびえ ＆ 縁起物 -->
         <div class="kaiun-container">
             <svg class="amabie-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <!-- ゴールド＆ディープパープルの高級感あるグラデーション -->
                     <linearGradient id="goldHair" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#fcf6ba"/>
                         <stop offset="50%" stop-color="#bf953f"/>
                         <stop offset="100%" stop-color="#aa771c"/>
                     </linearGradient>
-                    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#2a1b4e"/>
-                        <stop offset="100%" stop-color="#0d1117"/>
+                    <linearGradient id="emeraldBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#1b4332"/>
+                        <stop offset="100%" stop-color="#081c15"/>
                     </linearGradient>
                 </defs>
-                <!-- 髪の毛 -->
+                <!-- 髪の毛（ゴールド） -->
                 <path d="M 20 40 Q 10 65 18 90 C 35 95 65 95 82 90 Q 90 65 80 40 C 75 15 25 15 20 40 Z" fill="url(#goldHair)"/>
-                <!-- 体 -->
-                <path d="M 32 50 C 32 80 68 80 68 50 Z" fill="url(#bodyGrad)" stroke="#bf953f" stroke-width="1"/>
+                <!-- 体（エメラルドグリーン） -->
+                <path d="M 32 50 C 32 80 68 80 68 50 Z" fill="url(#emeraldBody)" stroke="#bf953f" stroke-width="1.2"/>
                 <circle cx="43" cy="60" r="2.5" fill="#fcf6ba" opacity="0.9"/>
                 <circle cx="57" cy="60" r="2.5" fill="#fcf6ba" opacity="0.9"/>
                 <circle cx="50" cy="68" r="2.5" fill="#fcf6ba" opacity="0.9"/>
@@ -333,11 +330,11 @@
                 <!-- くちばし -->
                 <polygon points="50,42 44,48 56,48" fill="#d4af37"/>
                 <!-- 目 -->
-                <circle cx="42" cy="42" r="2" fill="#0d1117"/>
-                <circle cx="58" cy="42" r="2" fill="#0d1117"/>
+                <circle cx="42" cy="42" r="2" fill="#020a05"/>
+                <circle cx="58" cy="42" r="2" fill="#020a05"/>
                 <circle cx="42.8" cy="41.2" r="0.7" fill="#ffffff"/>
                 <circle cx="58.8" cy="41.2" r="0.7" fill="#ffffff"/>
-                <!-- キラキラ光芒 -->
+                <!-- 光芒 -->
                 <path d="M 22 25 L 25 20 L 28 25 L 25 30 Z" fill="#fcf6ba"/>
                 <path d="M 72 22 L 74 18 L 76 22 L 74 26 Z" fill="#fcf6ba"/>
             </svg>
@@ -345,29 +342,53 @@
         </div>
 
         <div class="hero-badge">AMABIE BLESSING × HIGH PRECISION AI</div>
-        <h1>勝利へ導く圧倒的精度<br><span>ボートレースAI解析</span></h1>
-        <p>厳選された最新アルゴリズムが、会場特性・モーター・展開を深層分析。<br>極上の予想体験をお届けします。</p>
+
+        <!-- 読みやすさを重視した改行入り見出し -->
+        <h1>
+            勝利へ導く圧倒的精度<br>
+            <span>ボートレースAI解析</span>
+        </h1>
+
+        <!-- テンポよく読める改行入りテキスト -->
+        <p>
+            厳選された最新アルゴリズムが<br>
+            会場特性・モーター・展開を深層分析。<br>
+            極上の予想体験をお届けします。
+        </p>
 
         <!-- 「今日の予想を見る」ボタン -->
         <a href="race_prediction.html" class="btn-prediction">
             本日の厳選予想を見る ➔
         </a>
 
+        <!-- 改行を整えた特徴カード -->
         <div class="features">
             <div class="card">
                 <div class="card-icon">⚡</div>
                 <h3>高精度データ解析</h3>
-                <p>会場特性・風配・モーター評価値をリアルタイムに統合・算出。</p>
+                <p>
+                    会場特性や風配<br>
+                    モーター評価値を<br>
+                    リアルタイムに統合・算出
+                </p>
             </div>
             <div class="card">
                 <div class="card-icon">🎯</div>
                 <h3>厳選された最適買い目</h3>
-                <p>無駄を削ぎ落とした、回収期待値の高い買い目をダイレクトに提示。</p>
+                <p>
+                    無駄を限界まで削ぎ落とし<br>
+                    回収期待値の高い買い目を<br>
+                    ダイレクトに提示
+                </p>
             </div>
             <div class="card">
                 <div class="card-icon">🏆</div>
                 <h3>開運・的中祈願</h3>
-                <p>あまびえと幸運を呼び込む開運モチーフが、勝負運を格上げ。</p>
+                <p>
+                    あまびえと幸運を招く<br>
+                    開運モチーフが<br>
+                    あなたの勝負運を格上げ
+                </p>
             </div>
         </div>
     </main>
