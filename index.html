@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ボートレースAI予想 | トップページ</title>
-    <!-- Google Fonts から丸ゴシック調のポップなフォントを読み込み -->
-    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>ボートレースAI予想 | Premium Edition</title>
+    <!-- Google Fonts: 高級感のある明朝・ゴシック調フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Serif+JP:wght@500;700&family=M+PLUS+1p:wght@400;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* 基本スタイルリセット */
@@ -13,36 +13,62 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'M PLUS Rounded 1c', sans-serif;
         }
 
         body {
-            background-color: #FFF9E6; /* 温かみのあるクリームイエロー */
-            color: #4A3E3D;
+            /* 深みのあるダークネイビー〜ブラックの最高級グラデーション */
+            background: radial-gradient(circle at 50% 0%, #1a2332 0%, #0d1117 70%, #05070a 100%);
+            color: #e6edf3;
+            font-family: 'M PLUS 1p', sans-serif;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* レース感を出す背景の水面・光のスピードラインライン演出 */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, transparent 49%, rgba(212, 175, 55, 0.03) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(212, 175, 55, 0.03) 50%, transparent 51%);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* ヘッダー */
         header {
-            background-color: #FFFFFF;
-            padding: 1rem 1.5rem;
+            background: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 12px rgba(255, 154, 60, 0.15);
-            border-bottom: 3px solid #FFE066;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #FF7E36;
-            letter-spacing: 1px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            /* ゴールドグラデーションテキスト */
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
         }
 
         /* ヒーローセクション */
@@ -53,158 +79,208 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2.5rem 1.5rem;
-            background: linear-gradient(180deg, #FFF9E6 0%, #FFF0C2 100%);
+            padding: 3.5rem 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
-        /* 🌸 開運・あまびえエリア */
+        /* 🌸 開運・神聖なあまびえエリア */
         .kaiun-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        /* ゴールドの後光演出 */
+        .kaiun-container::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(10px);
         }
 
         .amabie-svg {
-            width: 85px;
-            height: 85px;
-            filter: drop-shadow(0px 4px 8px rgba(255, 126, 54, 0.25));
-            animation: float 3s ease-in-out infinite;
+            width: 95px;
+            height: 95px;
+            filter: drop-shadow(0px 4px 12px rgba(212, 175, 55, 0.4));
+            animation: float 4s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-7px) rotate(3deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
         }
 
         .lucky-charms {
-            font-size: 1.3rem;
-            margin-top: 0.3rem;
-            letter-spacing: 6px;
-            animation: pulse 2s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.98); }
-            100% { transform: scale(1.03); }
+            font-size: 1.1rem;
+            margin-top: 0.6rem;
+            letter-spacing: 8px;
+            opacity: 0.9;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
         }
 
         .hero-badge {
-            background: linear-gradient(135deg, #FFD166 0%, #FFB703 100%);
-            color: #8C3200;
-            font-size: 0.95rem;
-            font-weight: 800;
-            padding: 0.45rem 1.4rem;
-            border-radius: 20px;
-            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(170, 119, 28, 0.3) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            color: #fcf6ba;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 0.5rem 1.6rem;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
             display: inline-block;
-            box-shadow: 0 3px 6px rgba(255, 183, 3, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
         }
 
         .hero h1 {
-            font-family: 'Kiwi Maru', 'M PLUS Rounded 1c', serif;
-            font-size: 2.2rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
+            font-family: 'Noto Serif JP', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
             line-height: 1.4;
-            color: #332C2B;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
         }
 
         .hero h1 span {
-            color: #FF6B35;
-            font-weight: 800;
-            background: linear-gradient(transparent 60%, #FFE66D 60%);
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 30%, #b38728 70%, #fbf5b7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
 
         .hero p {
-            font-size: 1rem;
-            color: #665A58;
-            max-width: 500px;
-            margin-bottom: 2.2rem;
-            line-height: 1.7;
-            font-weight: 400;
+            font-size: 0.95rem;
+            color: #8b949e;
+            max-width: 520px;
+            margin-bottom: 2.8rem;
+            line-height: 1.8;
+            letter-spacing: 1px;
         }
 
-        /* ポップでぷっくりしたアクションボタン */
+        /* プレミアム・ラグジュアリーボタン */
         .btn-prediction {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
-            background: linear-gradient(135deg, #FF9F1C 0%, #FF6B35 100%);
-            color: #FFFFFF;
-            font-size: 1.3rem;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #bf953f 0%, #d4af37 50%, #aa771c 100%);
+            color: #0d1117;
+            font-size: 1.25rem;
             font-weight: 800;
-            padding: 1.1rem 2.8rem;
-            border-radius: 50px;
+            letter-spacing: 2px;
+            padding: 1.2rem 3.5rem;
+            border-radius: 4px; /* 重厚感のあるシャープな角丸 */
             text-decoration: none;
-            /* ぷっくり立体感を出す影 */
-            box-shadow: 0 6px 0 #D84A00, 0 10px 20px rgba(255, 107, 53, 0.3);
-            transition: all 0.15s ease;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
+            border: 1px solid #fcf6ba;
+            overflow: hidden;
+        }
+
+        /* ボタン内の光の反射演出 */
+        .btn-prediction::before {
+            content: '';
+            position: absolute;
             top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-prediction:hover::before {
+            left: 100%;
         }
 
         .btn-prediction:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 0 #D84A00, 0 12px 22px rgba(255, 107, 53, 0.4);
-            background: linear-gradient(135deg, #FFAA33 0%, #FF7744 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            background: linear-gradient(135deg, #d4af37 0%, #fcf6ba 50%, #b38728 100%);
         }
 
         .btn-prediction:active {
-            top: 4px;
-            box-shadow: 0 2px 0 #D84A00, 0 4px 10px rgba(255, 107, 53, 0.3);
+            transform: translateY(1px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
 
-        /* 特徴カード */
+        /* 特徴カード（グラスモフィズム＆ゴールドフレーム） */
         .features {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
-            margin-top: 2.8rem;
+            gap: 1.5rem;
+            margin-top: 3.5rem;
             flex-wrap: wrap;
-            max-width: 750px;
+            max-width: 850px;
             width: 100%;
         }
 
         .card {
-            background-color: #FFFFFF;
-            padding: 1.5rem;
-            border-radius: 20px;
+            background: rgba(22, 27, 34, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 1.8rem 1.5rem;
+            border-radius: 8px;
             flex: 1;
-            min-width: 220px;
-            box-shadow: 0 8px 20px rgba(255, 154, 60, 0.08);
-            border: 2px solid #FFE8A3;
+            min-width: 240px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.15);
         }
 
         .card-icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            filter: drop-shadow(0 2px 5px rgba(212, 175, 55, 0.3));
         }
 
         .card h3 {
-            color: #FF6B35;
-            margin-bottom: 0.4rem;
-            font-size: 1.1rem;
+            color: #fcf6ba;
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
             font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Noto Serif JP', serif;
         }
 
         .card p {
-            font-size: 0.88rem;
-            color: #7A6C6A;
+            font-size: 0.85rem;
+            color: #8b949e;
             margin-bottom: 0;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* フッター */
         footer {
-            background-color: #FFFFFF;
+            background: #05070a;
             text-align: center;
-            padding: 1.2rem;
-            font-size: 0.8rem;
-            color: #9E8E8C;
-            border-top: 2px solid #FFE8A3;
+            padding: 1.5rem;
+            font-size: 0.75rem;
+            color: #484f58;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
         }
     </style>
 </head>
@@ -212,73 +288,92 @@
 
     <header>
         <div class="logo">
-            <span>🚤</span> BOAT RACE PREDICT
+            <!-- レース感を出すチェッカーフラッグ・アイコン -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 15C4 15 5.5 14 8 14 C10.5 14 13.5 16 16 16 C18.5 16 20 15 20 15 V3 C20 3 18.5 4 16 4 C13.5 4 10.5 2 8 2 C5.5 2 4 3 4 3 V21" stroke="url(#gold-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#bf953f"/>
+                        <stop offset="50%" stop-color="#fcf6ba"/>
+                        <stop offset="100%" stop-color="#aa771c"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            BOAT RACE PREDICT VIP
         </div>
     </header>
 
     <main class="hero">
-        <!-- 🌸 開運・あまびえイラスト ＆ 縁起物モチーフ -->
+        <!-- 🌸 開運・ラグジュアリー風あまびえ ＆ 縁起物 -->
         <div class="kaiun-container">
             <svg class="amabie-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <!-- ゴールド＆ディープパープルの高級感あるグラデーション -->
+                    <linearGradient id="goldHair" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fcf6ba"/>
+                        <stop offset="50%" stop-color="#bf953f"/>
+                        <stop offset="100%" stop-color="#aa771c"/>
+                    </linearGradient>
+                    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#2a1b4e"/>
+                        <stop offset="100%" stop-color="#0d1117"/>
+                    </linearGradient>
+                </defs>
                 <!-- 髪の毛 -->
-                <path d="M 20 40 Q 10 65 18 90 C 35 95 65 95 82 90 Q 90 65 80 40 C 75 15 25 15 20 40 Z" fill="#FFB7C5"/>
-                <path d="M 15 50 Q 8 70 20 88 M 85 50 Q 92 70 80 88" stroke="#87CEEB" stroke-width="4" stroke-linecap="round" fill="none"/>
-                <!-- 体（着物風） -->
-                <path d="M 32 50 C 32 80 68 80 68 50 Z" fill="#B39DDB"/>
-                <circle cx="43" cy="60" r="3" fill="#FFFFFF" opacity="0.9"/>
-                <circle cx="57" cy="60" r="3" fill="#FFFFFF" opacity="0.9"/>
-                <circle cx="50" cy="68" r="3" fill="#FFFFFF" opacity="0.9"/>
+                <path d="M 20 40 Q 10 65 18 90 C 35 95 65 95 82 90 Q 90 65 80 40 C 75 15 25 15 20 40 Z" fill="url(#goldHair)"/>
+                <!-- 体 -->
+                <path d="M 32 50 C 32 80 68 80 68 50 Z" fill="url(#bodyGrad)" stroke="#bf953f" stroke-width="1"/>
+                <circle cx="43" cy="60" r="2.5" fill="#fcf6ba" opacity="0.9"/>
+                <circle cx="57" cy="60" r="2.5" fill="#fcf6ba" opacity="0.9"/>
+                <circle cx="50" cy="68" r="2.5" fill="#fcf6ba" opacity="0.9"/>
                 <!-- 3本足（ひれ） -->
-                <path d="M 36 78 C 30 88 33 92 38 88 C 42 84 46 82 50 88 C 54 82 58 84 62 88 C 67 92 70 88 64 78" fill="#4FC3F7"/>
+                <path d="M 36 78 C 30 88 33 92 38 88 C 42 84 46 82 50 88 C 54 82 58 84 62 88 C 67 92 70 88 64 78" fill="#d4af37"/>
                 <!-- 顔 -->
-                <ellipse cx="50" cy="45" rx="18" ry="16" fill="#FFF5EB"/>
+                <ellipse cx="50" cy="45" rx="18" ry="16" fill="#fffdfa"/>
                 <!-- くちばし -->
-                <polygon points="50,42 43,48 57,48" fill="#FF8A65"/>
+                <polygon points="50,42 44,48 56,48" fill="#d4af37"/>
                 <!-- 目 -->
-                <circle cx="42" cy="42" r="2.5" fill="#4A3E3D"/>
-                <circle cx="58" cy="42" r="2.5" fill="#4A3E3D"/>
-                <circle cx="43" cy="41" r="0.8" fill="#FFFFFF"/>
-                <circle cx="59" cy="41" r="0.8" fill="#FFFFFF"/>
-                <!-- ほっぺ -->
-                <ellipse cx="38" cy="47" rx="3" ry="1.5" fill="#FF80AB" opacity="0.8"/>
-                <ellipse cx="62" cy="47" rx="3" ry="1.5" fill="#FF80AB" opacity="0.8"/>
-                <!-- キラキラ -->
-                <path d="M 22 25 L 25 20 L 28 25 L 25 30 Z" fill="#FFD700"/>
-                <path d="M 72 22 L 74 18 L 76 22 L 74 26 Z" fill="#FFD700"/>
+                <circle cx="42" cy="42" r="2" fill="#0d1117"/>
+                <circle cx="58" cy="42" r="2" fill="#0d1117"/>
+                <circle cx="42.8" cy="41.2" r="0.7" fill="#ffffff"/>
+                <circle cx="58.8" cy="41.2" r="0.7" fill="#ffffff"/>
+                <!-- キラキラ光芒 -->
+                <path d="M 22 25 L 25 20 L 28 25 L 25 30 Z" fill="#fcf6ba"/>
+                <path d="M 72 22 L 74 18 L 76 22 L 74 26 Z" fill="#fcf6ba"/>
             </svg>
             <div class="lucky-charms">🔮 🐱 🍀 🪭 🔨 💰</div>
         </div>
 
-        <div class="hero-badge">✨ あまびえ祈願！AIがサクッと予想 ✨</div>
-        <h1>データでお得に楽しむ♪<br><span>ボートレースAI予想</span></h1>
-        <p>過去のデータから、今日のおすすめレースと買い目をわかりやすくお届けします！初心者さんにもぴったり♪</p>
+        <div class="hero-badge">AMABIE BLESSING × HIGH PRECISION AI</div>
+        <h1>勝利へ導く圧倒的精度<br><span>ボートレースAI解析</span></h1>
+        <p>厳選された最新アルゴリズムが、会場特性・モーター・展開を深層分析。<br>極上の予想体験をお届けします。</p>
 
-        <!-- 「今日の予想」ボタン：race_prediction.html に遷移 -->
+        <!-- 「今日の予想を見る」ボタン -->
         <a href="race_prediction.html" class="btn-prediction">
-            今日の予想を見る ➔
+            本日の厳選予想を見る ➔
         </a>
 
         <div class="features">
             <div class="card">
-                <div class="card-icon">📊</div>
-                <h3>かんたんデータ分析</h3>
-                <p>会場の特徴やモーター性能をAIがわかりやすく解説！</p>
+                <div class="card-icon">⚡</div>
+                <h3>高精度データ解析</h3>
+                <p>会場特性・風配・モーター評価値をリアルタイムに統合・算出。</p>
             </div>
             <div class="card">
-                <div class="card-icon">💡</div>
-                <h3>スマートな買い目</h3>
-                <p>展開予想から厳選した買い目をリアルタイムでお届け！</p>
+                <div class="card-icon">🎯</div>
+                <h3>厳選された最適買い目</h3>
+                <p>無駄を削ぎ落とした、回収期待値の高い買い目をダイレクトに提示。</p>
             </div>
             <div class="card">
-                <div class="card-icon">✨</div>
+                <div class="card-icon">🏆</div>
                 <h3>開運・的中祈願</h3>
-                <p>あまびえ＆ラッキーモチーフで運気も大幅アップ！？</p>
+                <p>あまびえと幸運を呼び込む開運モチーフが、勝負運を格上げ。</p>
             </div>
         </div>
     </main>
 
     <footer>
-        &copy; Boat Race Prediction. All rights reserved.
+        &copy; BOAT RACE PREDICTION. ALL RIGHTS RESERVED.
     </footer>
 
 </body>
