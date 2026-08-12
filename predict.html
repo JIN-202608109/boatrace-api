@@ -1,0 +1,243 @@
+import os
+from github import Github
+
+# --- predict.html（予想ページ）の生成 ---
+html_content = """<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚤 本日のボートレース予想 ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --accent: #ff6b81;
+            --bg-color: #f0f8ff;
+            --card-bg: #ffffff;
+            --text-main: #4a4a4a;
+            --text-sub: #7a8b9e;
+        }
+
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#e1f0ff 2px, transparent 2px);
+            background-size: 20px 20px;
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #74ebe5 0%, #89f7fe 100%);
+            width: 100%;
+            max-width: 600px;
+            border-radius: 24px;
+            color: #1a5276;
+            box-shadow: 0 10px 25px rgba(116, 235, 229, 0.4);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            border: 2px solid #e3f2fd;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #b3e5fc;
+        }
+
+        .date-badge {
+            background-color: #ff85a2;
+            color: white;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .race-item {
+            background-color: #f7fbff;
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border: 1px solid #e1f5fe;
+        }
+
+        .race-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .stadium-tag {
+            background-color: #4fc3f7;
+            color: white;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .race-num {
+            font-weight: 800;
+            color: #0288d1;
+        }
+
+        .prediction-box {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+        }
+
+        .boat-num {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+
+        .b1 { background-color: #ffffff; color: #333; border: 1.5px solid #ccc; }
+        .b2 { background-color: #333333; color: #fff; }
+        .b3 { background-color: #e53935; color: #fff; }
+        .b4 { background-color: #1e88e5; color: #fff; }
+        .b5 { background-color: #fdd835; color: #333; }
+        .b6 { background-color: #43a047; color: #fff; }
+
+        .confidence {
+            margin-left: auto;
+            font-size: 0.8rem;
+            color: #ff6b81;
+            font-weight: 800;
+        }
+
+        /* トップに戻るボタン */
+        .back-nav {
+            text-align: center;
+            margin: 10px 0 20px;
+        }
+
+        .btn-back {
+            color: #7a8b9e;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: #eef5fc;
+            transition: background 0.2s;
+        }
+
+        .btn-back:hover {
+            background: #e1edf8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🚤 本日の AI 予想結果 ✨</h1>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2 class="card-title">
+                🎯 厳選レース
+                <span class="date-badge">TODAY'S PICKUP</span>
+            </h2>
+
+            <div class="race-item">
+                <div class="race-header">
+                    <div>
+                        <span class="stadium-tag">住之江</span>
+                        <span class="race-num">11R</span>
+                    </div>
+                    <span class="confidence">🔥 本命度 A</span>
+                </div>
+                <div class="prediction-box">
+                    <span class="boat-num b1">1</span>-
+                    <span class="boat-num b2">2</span>-
+                    <span class="boat-num b3">3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- トップページに戻る導線 -->
+        <div class="back-nav">
+            <a href="index.html" class="btn-back">← トップページに戻る</a>
+        </div>
+    </div>
+
+</body>
+</html>
+"""
+
+# predict.html として保存
+TARGET_FILE = "predict.html"
+with open(TARGET_FILE, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+# --- GitHubへアップロード (predict.html) ---
+GITHUB_TOKEN = "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  # トークンを指定
+REPO_NAME = "JIN-202608109/boatrace-api"
+
+g = Github(GITHUB_TOKEN)
+repo = g.get_repo(REPO_NAME)
+
+try:
+    contents = repo.get_contents(TARGET_FILE)
+    repo.update_file(
+        path=TARGET_FILE,
+        message="Update predict.html",
+        content=html_content,
+        sha=contents.sha,
+        branch="main",
+    )
+    print("✅ predict.html をGitHubへ自動更新しました！")
+except Exception:
+    repo.create_file(
+        path=TARGET_FILE,
+        message="Create predict.html",
+        content=html_content,
+        branch="main",
+    )
+    print("✅ predict.html を新規作成してGitHubへアップロードしました！")
