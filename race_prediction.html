@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プレミアムAI厳選予想分析レポート - 2026年08月12日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho:wght@500;700&family=M+PLUS+1p:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b1d15; /* ダークエメラルド */
+            --card-bg: #122b20; /* 深緑カード */
+            --card-inner-bg: #091711;
+            --text-gold: #e5c158; /* 優雅な金 */
+            --text-gold-light: #f7e096;
+            --text-white: #eaf0ec;
+            --text-sub: #a3b8ac;
+            --accent-gold-grad: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            --border-gold: #3d5e4e;
+            --border-gold-highlight: #d4af37;
+            --shadow-lux: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'M PLUS 1p', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            line-height: 1.6;
+            padding: 25px 15px;
+        }
+
+        .container { max-width: 640px; margin: 0 auto; }
+
+        header {
+            background: linear-gradient(180deg, #163628 0%, #0d2118 100%);
+            border: 1px solid var(--border-gold-highlight);
+            padding: 30px 20px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: var(--shadow-lux);
+            position: relative;
+        }
+        header h1 {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: var(--accent-gold-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 0.85rem;
+            color: var(--text-gold-light);
+            letter-spacing: 0.5px;
+        }
+
+        .summary-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-gold);
+            box-shadow: var(--shadow-lux);
+            text-align: center;
+        }
+        .summary-card h2 {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .summary-card p { font-size: 0.88rem; color: var(--text-sub); }
+        .summary-highlight {
+            margin-top: 14px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: #0b1d15;
+            background: var(--accent-gold-grad);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .place-title {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-gold-light);
+            margin: 35px 0 15px 0;
+            padding: 8px 18px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border-left: 5px solid var(--border-gold-highlight);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .race-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lux);
+            border: 1px solid var(--border-gold);
+        }
+
+        .race-header {
+            background: #0e241b;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .race-num {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-gold);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .race-deadline {
+            font-size: 0.85rem;
+            background: var(--card-inner-bg);
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-gold-highlight);
+            color: var(--text-gold-light);
+            font-weight: 700;
+        }
+
+        .race-body { padding: 20px; }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .metric-box {
+            background: var(--card-inner-bg);
+            padding: 12px 8px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-gold);
+        }
+        .metric-label { font-size: 0.75rem; color: var(--text-sub); display: block; margin-bottom: 4px; }
+        .metric-val { font-size: 1.15rem; font-weight: 800; }
+        .val-star { color: #ffd700; font-size: 0.95rem; letter-spacing: -1px; }
+        .val-score { color: var(--text-gold); }
+
+        .status-box {
+            background: var(--card-inner-bg);
+            color: var(--text-white);
+            padding: 14px 16px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-gold);
+        }
+        .status-box strong {
+            background: var(--accent-gold-grad);
+            color: #0b1d15;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            margin-right: 8px;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-gold);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            text-align: center;
+            background: var(--card-inner-bg);
+        }
+        th {
+            background-color: #163628;
+            color: var(--text-gold-light);
+            padding: 12px 8px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-gold);
+            white-space: nowrap;
+        }
+        td {
+            padding: 12px 8px;
+            border-bottom: 1px solid #142e23;
+            white-space: nowrap;
+        }
+        tr:last-child td { border-bottom: none; }
+
+        .rank-badge {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            border-radius: 50%;
+            background: #254737;
+            color: var(--text-sub);
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+        tr:nth-child(1) .rank-badge { background: var(--accent-gold-grad); color: #0b1d15; box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4); }
+        tr:nth-child(2) .rank-badge { background: #c0c0c0; color: #0b1d15; }
+        tr:nth-child(3) .rank-badge { background: #cd7f32; color: #ffffff; }
+
+        .combo-main { font-weight: 800; font-size: 1.1rem; color: var(--text-gold-light); letter-spacing: 1px; }
+        .prob-val { color: var(--text-gold); font-weight: 800; font-size: 0.95rem; }
+
+        footer {
+            text-align: center;
+            padding: 25px 10px;
+            font-size: 0.75rem;
+            color: var(--text-sub);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✦ 競艇 AI厳選予想 ✦</h1>
+            <p>🗓️ 2026年08月12日 | 📍 対象場: 全場対象</p>
+        </header>
+
+        <section class="summary-card">
+            <h2>⚜️ 本日の厳選勝負レース ⚜️</h2>
+            <p>抽出条件：総合スコア <strong>85pt</strong> 以上 ＆ 1号艇勝率 <strong>75%</strong> 以上</p>
+            <div class="summary-highlight">
+                金運開運推奨: 全 8 レース
+            </div>
+        </section>
+
+        <div class="place-title">
+            <span>🚤 下関 レース場</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-gold);">全 1 件</span>
+        </div>
+
+        <article class="race-card">
+            <div class="race-header">
+                <span class="race-num">⚜️ 第 11 レース <small style="font-size:0.75rem; color:var(--text-sub); font-weight:normal;">(2026年8月12日_下関_11R)</small></span>
+                <span class="race-deadline">⏰ 締切 22:05</span>
+            </div>
+            <div class="race-body">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">自信度</span>
+                        <span class="metric-val val-star">★★★★★</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">総合スコア</span>
+                        <span class="metric-val val-score">93<small style="font-size:0.75rem;">pt</small></span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:var(--text-gold-light);">84.7%</span>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <div style="margin-bottom: 6px;"><strong>評価</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">順位</th>
+                                <th style="width: 50%;">🎯 厳選買い目</th>
+                                <th style="width: 30%;">予測確率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><span class="rank-badge">1</span></td>
+                                <td><span class="combo-main">1-2-4</span></td>
+                                <td><span class="prob-val">5.4%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">2</span></td>
+                                <td><span class="combo-main">1-4-2</span></td>
+                                <td><span class="prob-val">5.3%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">3</span></td>
+                                <td><span class="combo-main">1-2-3</span></td>
+                                <td><span class="prob-val">4.2%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">4</span></td>
+                                <td><span class="combo-main">1-4-3</span></td>
+                                <td><span class="prob-val">3.8%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">5</span></td>
+                                <td><span class="combo-main">1-3-2</span></td>
+                                <td><span class="prob-val">3.7%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">6</span></td>
+                                <td><span class="combo-main">1-3-4</span></td>
+                                <td><span class="prob-val">3.5%</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <div class="place-title">
+            <span>🚤 児島 レース場</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-gold);">全 1 件</span>
+        </div>
+
+        <article class="race-card">
+            <div class="race-header">
+                <span class="race-num">⚜️ 第 12 レース <small style="font-size:0.75rem; color:var(--text-sub); font-weight:normal;">(2026年8月12日_児島_12R)</small></span>
+                <span class="race-deadline">⏰ 締切 16:50</span>
+            </div>
+            <div class="race-body">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">自信度</span>
+                        <span class="metric-val val-star">★★★★★</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">総合スコア</span>
+                        <span class="metric-val val-score">85<small style="font-size:0.75rem;">pt</small></span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:var(--text-gold-light);">87.0%</span>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <div style="margin-bottom: 6px;"><strong>評価</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">順位</th>
+                                <th style="width: 50%;">🎯 厳選買い目</th>
+                                <th style="width: 30%;">予測確率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><span class="rank-badge">1</span></td>
+                                <td><span class="combo-main">1-5-2</span></td>
+                                <td><span class="prob-val">5.2%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">2</span></td>
+                                <td><span class="combo-main">1-2-5</span></td>
+                                <td><span class="prob-val">5.2%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">3</span></td>
+                                <td><span class="combo-main">1-5-3</span></td>
+                                <td><span class="prob-val">3.9%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">4</span></td>
+                                <td><span class="combo-main">1-2-3</span></td>
+                                <td><span class="prob-val">3.8%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">5</span></td>
+                                <td><span class="combo-main">1-5-4</span></td>
+                                <td><span class="prob-val">3.5%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">6</span></td>
+                                <td><span class="combo-main">1-3-5</span></td>
+                                <td><span class="prob-val">3.5%</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <div class="place-title">
+            <span>🚤 唐津 レース場</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-gold);">全 4 件</span>
+        </div>
+
+        <article class="race-card">
+            <div class="race-header">
+                <span class="race-num">⚜️ 第 1 レース <small style="font-size:0.75rem; color:var(--text-sub); font-weight:normal;">(2026年8月12日_唐津_1R)</small></span>
+                <span class="race-deadline">⏰ 締切 08:44</span>
+            </div>
+            <div class="race-body">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">自信度</span>
+                        <span class="metric-val val-star">★★★★★</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">総合スコア</span>
+                        <span class="metric-val val-score">85<small style="font-size:0.75rem;">pt</small></span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:var(--text-gold-light);">86.5%</span>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <div style="margin-bottom: 6px;"><strong>評価</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">順位</th>
+                                <th style="width: 50%;">🎯 厳選買い目</th>
+                                <th style="width: 30%;">予測確率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><span class="rank-badge">1</span></td>
+                                <td><span class="combo-main">1-4-2</span></td>
+                                <td><span class="prob-val">6.9%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">2</span></td>
+                                <td><span class="combo-main">1-2-4</span></td>
+                                <td><span class="prob-val">6.0%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">3</span></td>
+                                <td><span class="combo-main">1-4-3</span></td>
+                                <td><span class="prob-val">5.8%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">4</span></td>
+                                <td><span class="combo-main">4-1-2</span></td>
+                                <td><span class="prob-val">5.0%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">5</span></td>
+                                <td><span class="combo-main">1-3-4</span></td>
+                                <td><span class="prob-val">4.8%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">6</span></td>
+                                <td><span class="combo-main">4-1-3</span></td>
+                                <td><span class="prob-val">4.2%</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <article class="race-card">
+            <div class="race-header">
+                <span class="race-num">⚜️ 第 10 レース <small style="font-size:0.75rem; color:var(--text-sub); font-weight:normal;">(2026年8月12日_唐津_10R)</small></span>
+                <span class="race-deadline">⏰ 締切 13:12</span>
+            </div>
+            <div class="race-body">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">自信度</span>
+                        <span class="metric-val val-star">★★★★★</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">総合スコア</span>
+                        <span class="metric-val val-score">85<small style="font-size:0.75rem;">pt</small></span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:var(--text-gold-light);">89.4%</span>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <div style="margin-bottom: 6px;"><strong>評価</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">順位</th>
+                                <th style="width: 50%;">🎯 厳選買い目</th>
+                                <th style="width: 30%;">予測確率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><span class="rank-badge">1</span></td>
+                                <td><span class="combo-main">1-4-2</span></td>
+                                <td><span class="prob-val">4.6%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">2</span></td>
+                                <td><span class="combo-main">1-2-4</span></td>
+                                <td><span class="prob-val">4.3%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">3</span></td>
+                                <td><span class="combo-main">4-1-2</span></td>
+                                <td><span class="prob-val">3.7%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">4</span></td>
+                                <td><span class="combo-main">1-4-3</span></td>
+                                <td><span class="prob-val">3.7%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">5</span></td>
+                                <td><span class="combo-main">2-1-4</span></td>
+                                <td><span class="prob-val">3.4%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">6</span></td>
+                                <td><span class="combo-main">1-3-4</span></td>
+                                <td><span class="prob-val">3.2%</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <article class="race-card">
+            <div class="race-header">
+                <span class="race-num">⚜️ 第 11 レース <small style="font-size:0.75rem; color:var(--text-sub); font-weight:normal;">(2026年8月12日_唐津_11R)</small></span>
+                <span class="race-deadline">⏰ 締切 13:50</span>
+            </div>
+            <div class="race-body">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">自信度</span>
+                        <span class="metric-val val-star">★★★★★</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">総合スコア</span>
+                        <span class="metric-val val-score">98<small style="font-size:0.75rem;">pt</small></span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:var(--text-gold-light);">89.9%</span>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <div style="margin-bottom: 6px;"><strong>評価</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">順位</th>
+                                <th style="width: 50%;">🎯 厳選買い目</th>
+                                <th style="width: 30%;">予測確率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><span class="rank-badge">1</span></td>
+                                <td><span class="combo-main">1-4-3</span></td>
+                                <td><span class="prob-val">6.7%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">2</span></td>
+                                <td><span class="combo-main">1-4-2</span></td>
+                                <td><span class="prob-val">6.5%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">3</span></td>
+                                <td><span class="combo-main">4-1-3</span></td>
+                                <td><span class="prob-val">5.3%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">4</span></td>
+                                <td><span class="combo-main">4-1-2</span></td>
+                                <td><span class="prob-val">5.2%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">5</span></td>
+                                <td><span class="combo-main">1-3-4</span></td>
+                                <td><span class="prob-val">5.1%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">6</span></td>
+                                <td><span class="combo-main">1-2-4</span></td>
+                                <td><span class="prob-val">5.0%</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <article class="race-card">
+            <div class="race-header">
+                <span class="race-num">⚜️ 第 12 レース <small style="font-size:0.75rem; color:var(--text-sub); font-weight:normal;">(2026年8月12日_唐津_12R)</small></span>
+                <span class="race-deadline">⏰ 締切 14:30</span>
+            </div>
+            <div class="race-body">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">自信度</span>
+                        <span class="metric-val val-star">★★★★★</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">総合スコア</span>
+                        <span class="metric-val val-score">93<small style="font-size:0.75rem;">pt</small></span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:var(--text-gold-light);">88.2%</span>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <div style="margin-bottom: 6px;"><strong>評価</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">順位</th>
+                                <th style="width: 50%;">🎯 厳選買い目</th>
+                                <th style="width: 30%;">予測確率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><span class="rank-badge">1</span></td>
+                                <td><span class="combo-main">1-4-2</span></td>
+                                <td><span class="prob-val">5.6%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">2</span></td>
+                                <td><span class="combo-main">1-2-4</span></td>
+                                <td><span class="prob-val">5.4%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">3</span></td>
+                                <td><span class="combo-main">1-4-3</span></td>
+                                <td><span class="prob-val">4.9%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">4</span></td>
+                                <td><span class="combo-main">1-3-4</span></td>
+                                <td><span class="prob-val">4.5%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">5</span></td>
+                                <td><span class="combo-main">1-2-3</span></td>
+                                <td><span class="prob-val">4.4%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">6</span></td>
+                                <td><span class="combo-main">4-1-2</span></td>
+                                <td><span class="prob-val">4.3%</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <div class="place-title">
+            <span>🚤 桐生 レース場</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-gold);">全 1 件</span>
+        </div>
+
+        <article class="race-card">
+            <div class="race-header">
+                <span class="race-num">⚜️ 第 12 レース <small style="font-size:0.75rem; color:var(--text-sub); font-weight:normal;">(2026年8月12日_桐生_12R)</small></span>
+                <span class="race-deadline">⏰ 締切 20:31</span>
+            </div>
+            <div class="race-body">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">自信度</span>
+                        <span class="metric-val val-star">★★★★★</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">総合スコア</span>
+                        <span class="metric-val val-score">100<small style="font-size:0.75rem;">pt</small></span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:var(--text-gold-light);">80.6%</span>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <div style="margin-bottom: 6px;"><strong>評価</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">順位</th>
+                                <th style="width: 50%;">🎯 厳選買い目</th>
+                                <th style="width: 30%;">予測確率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><span class="rank-badge">1</span></td>
+                                <td><span class="combo-main">1-3-4</span></td>
+                                <td><span class="prob-val">4.4%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">2</span></td>
+                                <td><span class="combo-main">1-3-2</span></td>
+                                <td><span class="prob-val">3.9%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">3</span></td>
+                                <td><span class="combo-main">1-4-3</span></td>
+                                <td><span class="prob-val">3.8%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">4</span></td>
+                                <td><span class="combo-main">3-1-4</span></td>
+                                <td><span class="prob-val">3.6%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">5</span></td>
+                                <td><span class="combo-main">1-2-3</span></td>
+                                <td><span class="prob-val">3.3%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">6</span></td>
+                                <td><span class="combo-main">3-1-2</span></td>
+                                <td><span class="prob-val">3.2%</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <div class="place-title">
+            <span>🚤 芦屋 レース場</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-gold);">全 1 件</span>
+        </div>
+
+        <article class="race-card">
+            <div class="race-header">
+                <span class="race-num">⚜️ 第 12 レース <small style="font-size:0.75rem; color:var(--text-sub); font-weight:normal;">(2026年8月12日_芦屋_12R)</small></span>
+                <span class="race-deadline">⏰ 締切 14:02</span>
+            </div>
+            <div class="race-body">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <span class="metric-label">自信度</span>
+                        <span class="metric-val val-star">★★★★★</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">総合スコア</span>
+                        <span class="metric-val val-score">93<small style="font-size:0.75rem;">pt</small></span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">1号艇AI勝率</span>
+                        <span class="metric-val" style="color:var(--text-gold-light);">85.2%</span>
+                    </div>
+                </div>
+
+                <div class="status-box">
+                    <div style="margin-bottom: 6px;"><strong>評価</strong> 波乱要素が極めて少なく、1号艇の逃げ信頼度が最高レベルのレース。</div>
+                    <div><strong>推奨</strong> 本命完全勝負</div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">順位</th>
+                                <th style="width: 50%;">🎯 厳選買い目</th>
+                                <th style="width: 30%;">予測確率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><span class="rank-badge">1</span></td>
+                                <td><span class="combo-main">1-3-2</span></td>
+                                <td><span class="prob-val">5.5%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">2</span></td>
+                                <td><span class="combo-main">1-2-3</span></td>
+                                <td><span class="prob-val">5.5%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">3</span></td>
+                                <td><span class="combo-main">1-3-4</span></td>
+                                <td><span class="prob-val">3.8%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">4</span></td>
+                                <td><span class="combo-main">1-2-4</span></td>
+                                <td><span class="prob-val">3.8%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">5</span></td>
+                                <td><span class="combo-main">1-3-5</span></td>
+                                <td><span class="prob-val">3.7%</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="rank-badge">6</span></td>
+                                <td><span class="combo-main">1-2-5</span></td>
+                                <td><span class="prob-val">3.7%</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <footer>
+            <p>※本分析はAIアルゴリズムによる統計的予測です。的中を完全に保証するものではありません。余力資金の範囲内でお楽しみください。</p>
+        </footer>
+    </div>
+</body>
+</html>
