@@ -100,8 +100,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
             z-index: -1;
             filter: blur(12px);
@@ -119,12 +119,31 @@
             50% { transform: translateY(-8px) rotate(2deg); }
         }
 
+        /* 1号艇〜6号艇のかわいいボートアイコン群（色のみ） */
         .lucky-charms {
-            font-size: 1.1rem;
-            margin-top: 0.6rem;
-            letter-spacing: 8px;
-            opacity: 0.95;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.8rem;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+        }
+
+        .mini-boat {
+            width: 32px;
+            height: 32px;
+            animation: float-boat 3s ease-in-out infinite;
+        }
+
+        .mini-boat:nth-child(2) { animation-delay: 0.2s; }
+        .mini-boat:nth-child(3) { animation-delay: 0.4s; }
+        .mini-boat:nth-child(4) { animation-delay: 0.6s; }
+        .mini-boat:nth-child(5) { animation-delay: 0.8s; }
+        .mini-boat:nth-child(6) { animation-delay: 1.0s; }
+
+        @keyframes float-boat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
         }
 
         .hero-badge {
@@ -144,7 +163,7 @@
 
         .hero h1 {
             font-family: 'Noto Serif JP', serif;
-            font-size: 2rem;
+            font-size: 2.1rem;
             font-weight: 700;
             margin-bottom: 1.2rem;
             line-height: 1.6;
@@ -287,7 +306,7 @@
                 padding: 3.5rem 1.5rem;
             }
             .hero h1 {
-                font-size: 2.3rem;
+                font-size: 2.5rem;
             }
             .features {
                 flex-direction: row;
@@ -327,7 +346,7 @@
     </header>
 
     <main class="hero">
-        <!-- 🌸 開運・深緑とゴールドに輝くあまびえ ＆ 縁起物 -->
+        <!-- 🌸 開運・深緑とゴールドに輝くあまびえ ＆ 1〜6号艇のボート絵（色のみ） -->
         <div class="kaiun-container">
             <svg class="amabie-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -363,23 +382,60 @@
                 <path d="M 22 25 L 25 20 L 28 25 L 25 30 Z" fill="#fcf6ba"/>
                 <path d="M 72 22 L 74 18 L 76 22 L 74 26 Z" fill="#fcf6ba"/>
             </svg>
-            <div class="lucky-charms">🔮 🐱 🍀 🪭 🔨 💰</div>
+
+            <!-- 1号艇〜6号艇のかわいいボートイラスト（番号なし・色のみ） -->
+            <div class="lucky-charms">
+                <!-- 1号艇: 白 -->
+                <svg class="mini-boat" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="20" cy="26" rx="16" ry="7" fill="#f8f9fa" stroke="#d4af37" stroke-width="0.8"/>
+                    <path d="M 10 24 C 10 15 30 15 30 24 Z" fill="#ffffff" stroke="#d4af37" stroke-width="0.8"/>
+                    <circle cx="20" cy="14" r="7" fill="#ffffff" stroke="#d4af37" stroke-width="1"/>
+                </svg>
+                <!-- 2号艇: 黒 -->
+                <svg class="mini-boat" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="20" cy="26" rx="16" ry="7" fill="#343a40" stroke="#d4af37" stroke-width="0.8"/>
+                    <path d="M 10 24 C 10 15 30 15 30 24 Z" fill="#495057" stroke="#d4af37" stroke-width="0.8"/>
+                    <circle cx="20" cy="14" r="7" fill="#212529" stroke="#d4af37" stroke-width="1"/>
+                </svg>
+                <!-- 3号艇: 赤 -->
+                <svg class="mini-boat" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="20" cy="26" rx="16" ry="7" fill="#c92a2a" stroke="#d4af37" stroke-width="0.8"/>
+                    <path d="M 10 24 C 10 15 30 15 30 24 Z" fill="#e03131" stroke="#d4af37" stroke-width="0.8"/>
+                    <circle cx="20" cy="14" r="7" fill="#fa5252" stroke="#d4af37" stroke-width="1"/>
+                </svg>
+                <!-- 4号艇: 青 -->
+                <svg class="mini-boat" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="20" cy="26" rx="16" ry="7" fill="#1864ab" stroke="#d4af37" stroke-width="0.8"/>
+                    <path d="M 10 24 C 10 15 30 15 30 24 Z" fill="#1c7ed6" stroke="#d4af37" stroke-width="0.8"/>
+                    <circle cx="20" cy="14" r="7" fill="#228be6" stroke="#d4af37" stroke-width="1"/>
+                </svg>
+                <!-- 5号艇: 黄 -->
+                <svg class="mini-boat" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="20" cy="26" rx="16" ry="7" fill="#f59f00" stroke="#d4af37" stroke-width="0.8"/>
+                    <path d="M 10 24 C 10 15 30 15 30 24 Z" fill="#fcc419" stroke="#d4af37" stroke-width="0.8"/>
+                    <circle cx="20" cy="14" r="7" fill="#ffd43b" stroke="#d4af37" stroke-width="1"/>
+                </svg>
+                <!-- 6号艇: 緑 -->
+                <svg class="mini-boat" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="20" cy="26" rx="16" ry="7" fill="#2b8a3e" stroke="#d4af37" stroke-width="0.8"/>
+                    <path d="M 10 24 C 10 15 30 15 30 24 Z" fill="#2f9e44" stroke="#d4af37" stroke-width="0.8"/>
+                    <circle cx="20" cy="14" r="7" fill="#37b24d" stroke="#d4af37" stroke-width="1"/>
+                </svg>
+            </div>
         </div>
 
         <div class="hero-badge">AI INTELLIGENCE & FORTUNE INSIGHTS</div>
 
-        <!-- ワクワク感と誠実さを両立させた見出し -->
+        <!-- キャッチコピー：「勝つ楽しみを体感しよう！」に変更 -->
         <h1>
-            水面を駆け抜ける一瞬のきらめきを捉え<br>
-            胸躍る最高の的中体験へと導く<br>
+            当てる楽しみを！<br>
             <span>本格AIボートレース予測</span>
         </h1>
 
-        <!-- ワクワク感と誠実な信頼感のある説明文 -->
+        <!-- シンプルですっきりした説明文 -->
         <p>
-            膨大なデータと独自のAIアルゴリズムが導き出す、<br>
-            鋭くも透明性のある本格的なレース分析。<br>
-            新たな発見とワクワクする勝利の瞬間をお届けします。
+            データが導く鋭い分析と予想で、<br>
+            レースをもっとワクワク楽しく。
         </p>
 
         <!-- 「本日の予想レポートを見る」ボタン -->
@@ -389,7 +445,7 @@
             </a>
         </p>
 
-        <!-- ワクワク感と誠実さを兼ね備えた特徴カード -->
+        <!-- 特徴カード -->
         <div class="features">
             <div class="card">
                 <div class="card-icon">⚡</div>
@@ -411,11 +467,11 @@
             </div>
             <div class="card">
                 <div class="card-icon">🔥</div>
-                <h3>胸躍る臨場感</h3>
+                <h3>みんなで盛り上がる</h3>
                 <p>
                     レースの醍醐味を最大限に引き出し<br>
-                    手に汗握る白熱の瞬間を<br>
-                    何倍にも楽しむための羅針盤に
+                    仲間とワイワイ語り合いながら<br>
+                    白熱の瞬間を何倍にも楽しむ羅針盤に
                 </p>
             </div>
         </div>
