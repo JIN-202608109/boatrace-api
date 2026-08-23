@@ -184,16 +184,67 @@
             font-weight: 700;
         }
 
-        .hero p {
-            font-size: 0.92rem;
-            color: #b0c4b1;
-            max-width: 480px;
-            margin-bottom: 2.2rem;
-            line-height: 1.8;
-            letter-spacing: 0.5px;
+        /* 特徴カード（深緑グラスモフィズム＆ゴールドフレーム） */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 2.5rem;
+            flex-direction: column;
+            max-width: 420px;
+            width: 100%;
         }
 
-        /* プレミアム・金運ゴールドボタン */
+        .card {
+            background: rgba(13, 40, 24, 0.55);
+            backdrop-filter: blur(12px);
+            padding: 1.5rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: all 0.3s ease;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+
+        .card:hover {
+            border-color: rgba(212, 175, 55, 0.65);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.6rem;
+            filter: drop-shadow(0 2px 5px rgba(212, 175, 55, 0.4));
+        }
+
+        .card h3 {
+            color: #fcf6ba;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .card p {
+            font-size: 0.85rem;
+            color: #b0c4b1;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        /* プレミアム・金運ゴールドボタンエリア */
+        .btn-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
         .btn-prediction {
             display: inline-flex;
             align-items: center;
@@ -201,12 +252,14 @@
             gap: 0.8rem;
             background: linear-gradient(135deg, #bf953f 0%, #d4af37 50%, #aa771c 100%);
             color: #05190e;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 800;
             letter-spacing: 1px;
-            padding: 1.1rem 2.5rem;
-            border-radius: 4px;
+            line-height: 1.4;
+            padding: 1.1rem 2.2rem;
+            border-radius: 6px;
             text-decoration: none;
+            text-align: center;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
@@ -242,54 +295,12 @@
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
 
-        /* 特徴カード（深緑グラスモフィズム＆ゴールドフレーム） */
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 3rem;
-            flex-direction: column;
-            max-width: 420px;
-            width: 100%;
-        }
-
-        .card {
-            background: rgba(13, 40, 24, 0.55);
-            backdrop-filter: blur(12px);
-            padding: 1.5rem 1.2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: rgba(212, 175, 55, 0.65);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.2);
-        }
-
-        .card-icon {
-            font-size: 1.8rem;
-            margin-bottom: 0.6rem;
-            filter: drop-shadow(0 2px 5px rgba(212, 175, 55, 0.4));
-        }
-
-        .card h3 {
-            color: #fcf6ba;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            font-family: 'Noto Serif JP', serif;
-        }
-
-        .card p {
-            font-size: 0.85rem;
+        .hero-description {
+            font-size: 0.92rem;
             color: #b0c4b1;
-            margin-bottom: 0;
-            line-height: 1.6;
+            max-width: 480px;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
         }
 
         /* フッター */
@@ -305,7 +316,7 @@
             z-index: 10;
         }
 
-        /* PC表示などの少し大きい画面ではカードを横並びにする */
+        /* PC表示などの少し大きい画面での最適化 */
         @media (min-width: 768px) {
             .hero {
                 padding: 3.5rem 1.5rem;
@@ -315,13 +326,13 @@
             }
             .features {
                 flex-direction: row;
-                max-width: 850px;
+                max-width: 900px;
                 gap: 1.5rem;
             }
             .card {
                 flex: 1;
                 text-align: center;
-                padding: 1.8rem 1.5rem;
+                padding: 1.8rem 1.2rem;
             }
             .btn-prediction {
                 width: auto;
@@ -335,7 +346,6 @@
 
     <header>
         <div class="logo">
-            <!-- レース感をあしらったゴールドのチェッカーフラッグ -->
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4 15C4 15 5.5 14 8 14 C10.5 14 13.5 16 16 16 C18.5 16 20 15 20 15 V3 C20 3 18.5 4 16 4 C13.5 4 10.5 2 8 2 C5.5 2 4 3 4 3 V21" stroke="url(#gold-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <defs>
@@ -351,7 +361,6 @@
     </header>
 
     <main class="hero">
-        <!-- 🌸 開運・深緑とゴールドに輝くあまびえ ＆ 1〜6号艇のボート絵（レーシングハイドロプレーンデザイン） -->
         <div class="kaiun-container">
             <svg class="amabie-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -365,72 +374,53 @@
                         <stop offset="100%" stop-color="#081c15"/>
                     </linearGradient>
                 </defs>
-                <!-- 髪の毛（ゴールド） -->
                 <path d="M 20 40 Q 10 65 18 90 C 35 95 65 95 82 90 Q 90 65 80 40 C 75 15 25 15 20 40 Z" fill="url(#goldHair)"/>
-                <!-- 体（エメラルドグリーン） -->
                 <path d="M 32 50 C 32 80 68 80 68 50 Z" fill="url(#emeraldBody)" stroke="#bf953f" stroke-width="1.2"/>
                 <circle cx="43" cy="60" r="2.5" fill="#fcf6ba" opacity="0.9"/>
                 <circle cx="57" cy="60" r="2.5" fill="#fcf6ba" opacity="0.9"/>
                 <circle cx="50" cy="68" r="2.5" fill="#fcf6ba" opacity="0.9"/>
-                <!-- 3本足（ひれ） -->
                 <path d="M 36 78 C 30 88 33 92 38 88 C 42 84 46 82 50 88 C 54 82 58 84 62 88 C 67 92 70 88 64 78" fill="#d4af37"/>
-                <!-- 顔 -->
                 <ellipse cx="50" cy="45" rx="18" ry="16" fill="#fffdfa"/>
-                <!-- くちばし -->
                 <polygon points="50,42 44,48 56,48" fill="#d4af37"/>
-                <!-- 目 -->
                 <circle cx="42" cy="42" r="2" fill="#020a05"/>
                 <circle cx="58" cy="42" r="2" fill="#020a05"/>
                 <circle cx="42.8" cy="41.2" r="0.7" fill="#ffffff"/>
                 <circle cx="58.8" cy="41.2" r="0.7" fill="#ffffff"/>
-                <!-- 光芒 -->
                 <path d="M 22 25 L 25 20 L 28 25 L 25 30 Z" fill="#fcf6ba"/>
                 <path d="M 72 22 L 74 18 L 76 22 L 74 26 Z" fill="#fcf6ba"/>
             </svg>
 
-            <!-- 1号艇〜6号艇のかっこいいレーシングボート（スタイリッシュな流線型ハイドロプレーン） -->
             <div class="lucky-charms">
-                <!-- 1号艇: 白 (White Racing Boat) -->
                 <svg class="mini-boat" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 2 34 Q 10 33 22 35 C 38 35 52 26 58 20 Q 42 16 26 16 Z" fill="#e9ecef" stroke="#d4af37" stroke-width="1"/>
                     <path d="M 12 21 C 24 21 38 18 48 20 C 38 23 22 25 10 25 Z" fill="#ffffff"/>
                     <path d="M 24 16 L 35 12 L 40 18 Z" fill="#d4af37" opacity="0.8"/>
                     <path d="M 2 36 Q 12 33 20 36 C 15 38 6 38 2 36 Z" fill="#64dfdf" opacity="0.8"/>
                 </svg>
-
-                <!-- 2号艇: 黒 (Black Racing Boat) -->
                 <svg class="mini-boat" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 2 34 Q 10 33 22 35 C 38 35 52 26 58 20 Q 42 16 26 16 Z" fill="#212529" stroke="#d4af37" stroke-width="1"/>
                     <path d="M 12 21 C 24 21 38 18 48 20 C 38 23 22 25 10 25 Z" fill="#343a40"/>
                     <path d="M 24 16 L 35 12 L 40 18 Z" fill="#d4af37" opacity="0.8"/>
                     <path d="M 2 36 Q 12 33 20 36 C 15 38 6 38 2 36 Z" fill="#64dfdf" opacity="0.8"/>
                 </svg>
-
-                <!-- 3号艇: 赤 (Red Racing Boat) -->
                 <svg class="mini-boat" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 2 34 Q 10 33 22 35 C 38 35 52 26 58 20 Q 42 16 26 16 Z" fill="#c92a2a" stroke="#d4af37" stroke-width="1"/>
                     <path d="M 12 21 C 24 21 38 18 48 20 C 38 23 22 25 10 25 Z" fill="#ff6b6b"/>
                     <path d="M 24 16 L 35 12 L 40 18 Z" fill="#fcf6ba" opacity="0.8"/>
                     <path d="M 2 36 Q 12 33 20 36 C 15 38 6 38 2 36 Z" fill="#64dfdf" opacity="0.8"/>
                 </svg>
-
-                <!-- 4号艇: 青 (Blue Racing Boat) -->
                 <svg class="mini-boat" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 2 34 Q 10 33 22 35 C 38 35 52 26 58 20 Q 42 16 26 16 Z" fill="#1864ab" stroke="#d4af37" stroke-width="1"/>
                     <path d="M 12 21 C 24 21 38 18 48 20 C 38 23 22 25 10 25 Z" fill="#339af0"/>
                     <path d="M 24 16 L 35 12 L 40 18 Z" fill="#fcf6ba" opacity="0.8"/>
                     <path d="M 2 36 Q 12 33 20 36 C 15 38 6 38 2 36 Z" fill="#64dfdf" opacity="0.8"/>
                 </svg>
-
-                <!-- 5号艇: 黄 (Yellow Racing Boat) -->
                 <svg class="mini-boat" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 2 34 Q 10 33 22 35 C 38 35 52 26 58 20 Q 42 16 26 16 Z" fill="#f59f00" stroke="#d4af37" stroke-width="1"/>
                     <path d="M 12 21 C 24 21 38 18 48 20 C 38 23 22 25 10 25 Z" fill="#ffe066"/>
                     <path d="M 24 16 L 35 12 L 40 18 Z" fill="#ffffff" opacity="0.9"/>
                     <path d="M 2 36 Q 12 33 20 36 C 15 38 6 38 2 36 Z" fill="#64dfdf" opacity="0.8"/>
                 </svg>
-
-                <!-- 6号艇: 緑 (Green Racing Boat) -->
                 <svg class="mini-boat" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 2 34 Q 10 33 22 35 C 38 35 52 26 58 20 Q 42 16 26 16 Z" fill="#2b8a3e" stroke="#d4af37" stroke-width="1"/>
                     <path d="M 12 21 C 24 21 38 18 48 20 C 38 23 22 25 10 25 Z" fill="#51cf66"/>
@@ -442,27 +432,20 @@
 
         <div class="hero-badge">AI INTELLIGENCE & FORTUNE INSIGHTS</div>
 
-        <!-- キャッチコピー -->
         <h1>
             当てる楽しさを！<br>
             <span>本格AIボートレース予測</span>
         </h1>
 
-        <!-- シンプルですっきりした説明文 -->
-        <p>
-            データが導く鋭い分析と予想で、<br>
-            レースをもっとワクワク楽しく。
-        </p>
-
-        <!-- 特徴カード -->
+        <!-- 特徴カード（改行位置を最適化） -->
         <div class="features">
             <div class="card">
                 <div class="card-icon">⚡</div>
                 <h3>高精度AI分析</h3>
                 <p>
                     リアルタイムの気象や水面状況、<br>
-                    選手の機力データを多角的に解析し<br>
-                    高確率の買い目を導き出します
+                    選手の機力データを多角的に解析し、<br>
+                    高確率の買い目を導き出します。
                 </p>
             </div>
             <div class="card">
@@ -470,27 +453,32 @@
                 <h3>透明性と誠実さ</h3>
                 <p>
                     根拠の明確なデータに基づいた<br>
-                    信頼のおける予測情報だけを<br>
-                    真っ直ぐにお伝えいたします
+                    信頼のおける予測情報だけを、<br>
+                    真っ直ぐにお伝えいたします。
                 </p>
             </div>
             <div class="card">
                 <div class="card-icon">🔥</div>
                 <h3>みんなで盛り上がる</h3>
                 <p>
-                    レースの醍醐味を最大限に引き出し<br>
+                    レースの醍醐味を最大限に引き出し、<br>
                     仲間とワイワイ語り合いながら<br>
-                    白熱の瞬間を何倍にも楽しむ羅針盤に
+                    白熱の瞬間を楽しむ羅針盤に。
                 </p>
             </div>
-        </div>
-        
-         <!-- 「本日の予想レポートを見る」ボタン -->
-        <p>
+        </div>            
+
+        <!-- ボタンエリア -->
+        <div class="btn-container">
             <a href="race_prediction.html" class="btn-prediction">
-                本日のAI予想レポートを見る ➔
+                本日のAI予想レポートを<br>見る ➔
             </a>
+        </div>
             
+        <!-- 説明文 -->
+        <p class="hero-description">
+            データが導く鋭い分析と予想で、<br>
+            レースをもっとワクワク楽しく。
         </p>
     </main>
 
