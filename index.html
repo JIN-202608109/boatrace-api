@@ -170,7 +170,7 @@
             font-family: 'Noto Serif JP', serif;
             font-size: 2.1rem;
             font-weight: 700;
-            margin-bottom: 1.2rem;
+            margin-bottom: 2rem;
             line-height: 1.6;
             color: #ffffff;
             letter-spacing: 1px;
@@ -189,8 +189,8 @@
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-top: 2rem;
-            margin-bottom: 2.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
             flex-direction: column;
             max-width: 420px;
             width: 100%;
@@ -235,6 +235,16 @@
             color: #b0c4b1;
             margin-bottom: 0;
             line-height: 1.7;
+        }
+
+        /* ヒーロー説明文 */
+        .hero-description {
+            font-size: 0.92rem;
+            color: #b0c4b1;
+            max-width: 480px;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
         }
 
         /* プレミアム・金運ゴールドボタンエリア */
@@ -293,14 +303,6 @@
         .btn-prediction:active {
             transform: translateY(1px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .hero-description {
-            font-size: 0.92rem;
-            color: #b0c4b1;
-            max-width: 480px;
-            line-height: 1.8;
-            letter-spacing: 0.5px;
         }
 
         /* フッター */
@@ -437,7 +439,7 @@
             <span>本格AIボートレース予測</span>
         </h1>
 
-        <!-- 特徴カード（改行位置を最適化） -->
+        <!-- 特徴カード -->
         <div class="features">
             <div class="card">
                 <div class="card-icon">⚡</div>
@@ -466,7 +468,13 @@
                     白熱の瞬間を楽しむ羅針盤に。
                 </p>
             </div>
-        </div>            
+        </div>
+
+        <!-- 説明文（カード下・ボタン上に移動） -->
+        <p class="hero-description">
+            データが導く鋭い分析と予想で、<br>
+            レースをもっとワクワク楽しく。
+        </p>
 
         <!-- ボタンエリア -->
         <div class="btn-container">
@@ -474,12 +482,6 @@
                 本日のAI予想レポートを<br>見る ➔
             </a>
         </div>
-            
-        <!-- 説明文 -->
-        <p class="hero-description">
-            データが導く鋭い分析と予想で、<br>
-            レースをもっとワクワク楽しく。
-        </p>
     </main>
 
     <footer>
