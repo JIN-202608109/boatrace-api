@@ -35,8 +35,8 @@
             z-index: 0;
         }
         .container { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
-        .page-view { display: none; }
-        .page-view.active-view { display: block; }
+        .page-view { display: none !important; }
+        .page-view.active-view { display: block !important; }
         .btn-top-return { display: inline-flex; align-items: center; gap: 6px; color: var(--text-gold-light); background: rgba(13, 40, 24, 0.8); border: 1px solid var(--border-gold-highlight); padding: 10px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 800; margin-bottom: 20px; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); transition: transform 0.2s; }
         .btn-top-return:active { transform: scale(0.96); }
 
@@ -190,7 +190,7 @@
 
         <!-- API連携互換のための非表示コントロール要素 -->
         <div class="hidden-api-controls">
-            <select id="race-select" onchange="if(this.value) showView(this.value)">
+            <select id="race-select" onchange="if(this.value) window.showView(this.value)">
                 <option value="">会場を選択してください</option>
                     <option value="view-toda">戸田</option>
                     <option value="view-edogawa">江戸川</option>
@@ -215,13 +215,13 @@
             <nav class="stadium-nav-card">
                 <div class="stadium-nav-title">📍 表示したい開催場を選択</div>
                 <div class="stadium-grid">                    <div class="btn-stadium inactive-stadium">桐生</div>
-                    <button type="button" class="btn-stadium" onclick="showView('view-toda')">戸田</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-edogawa')">江戸川</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-heiwajima')">平和島</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-toda')">戸田</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-edogawa')">江戸川</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-heiwajima')">平和島</button>
                     <div class="btn-stadium inactive-stadium">多摩川</div>
-                    <button type="button" class="btn-stadium" onclick="showView('view-lakehamanako')">浜名湖</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-gamagori')">蒲郡</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-tokoname')">常滑</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-lakehamanako')">浜名湖</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-gamagori')">蒲郡</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-tokoname')">常滑</button>
                     <div class="btn-stadium inactive-stadium">津</div>
                     <div class="btn-stadium inactive-stadium">三国</div>
                     <div class="btn-stadium inactive-stadium">びわこ</div>
@@ -229,21 +229,21 @@
                     <div class="btn-stadium inactive-stadium">尼崎</div>
                     <div class="btn-stadium inactive-stadium">鳴門</div>
                     <div class="btn-stadium inactive-stadium">丸亀</div>
-                    <button type="button" class="btn-stadium" onclick="showView('view-kojima')">児島</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-kojima')">児島</button>
                     <div class="btn-stadium inactive-stadium">宮島</div>
-                    <button type="button" class="btn-stadium" onclick="showView('view-tokuyama')">徳山</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-shimonoseki')">下関</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-wakamatsu')">若松</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-ashiya')">芦屋</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-fukuoka')">福岡</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-karatsu')">唐津</button>
-                    <button type="button" class="btn-stadium" onclick="showView('view-omura')">大村</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-tokuyama')">徳山</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-shimonoseki')">下関</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-wakamatsu')">若松</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-ashiya')">芦屋</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-fukuoka')">福岡</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-karatsu')">唐津</button>
+                    <button type="button" class="btn-stadium" onclick="window.showView('view-omura')">大村</button>
 </div>
             </nav>
             <section class="summary-card">
                 <h2>⚜️ 本日の厳選勝負レース ⚜️</h2>
                 
-                <button type="button" class="summary-highlight-btn" onclick="showView('view-shobu')">
+                <button type="button" class="summary-highlight-btn" onclick="window.showView('view-shobu')">
                     🔥 本日の厳選勝負レースを見る<br>
                          (全 1 レース)
                 </button>
@@ -252,7 +252,7 @@
         </div>
 
         <div id="view-shobu" class="page-view">
-            <button type="button" class="btn-top-return" onclick="showView('view-top')">‹ 一覧画面に戻る</button>
+            <button type="button" class="btn-top-return" onclick="window.showView('view-top')">‹ 一覧画面に戻る</button>
             <div style="text-align: center; margin-bottom: 20px;">
                 <h2 style="font-size: 1.25rem; color: var(--text-gold-light); font-family: 'Noto Serif JP', serif;">🔥 本日の厳選勝負レース (全 1 レース) 🔥</h2>
             </div>
@@ -287,7 +287,7 @@
                         <div class="detail-grid"><div class="detail-item"><span class="detail-label">レース日</span><span class="detail-value">2026年8月23日</span></div><div class="detail-item"><span class="detail-label">勝負対象</span><span class="detail-value">勝負レース</span></div><div class="detail-item"><span class="detail-label">2号艇壁スコア</span><span class="detail-value">0.37</span></div><div class="detail-item"><span class="detail-label">最大まくり脅威艇</span><span class="detail-value">3号艇</span></div><div class="detail-item"><span class="detail-label">逃げリスク指数</span><span class="detail-value">0.179</span></div><div class="detail-item"><span class="detail-label">1号艇コース別1着率</span><span class="detail-value">67.2%</span></div><div class="detail-item"><span class="detail-label">1号艇直近10走平均着順</span><span class="detail-value">2.5</span></div><div class="detail-item"><span class="detail-label">1号艇_1着率</span><span class="detail-value">79.9%</span></div><div class="detail-item"><span class="detail-label">1号艇_2着率</span><span class="detail-value">13.6%</span></div><div class="detail-item"><span class="detail-label">1号艇_3着率</span><span class="detail-value">4.8%</span></div><div class="detail-item"><span class="detail-label">2号艇_1着率</span><span class="detail-value">10.5%</span></div><div class="detail-item"><span class="detail-label">2号艇_2着率</span><span class="detail-value">17.4%</span></div><div class="detail-item"><span class="detail-label">2号艇_3着率</span><span class="detail-value">18.3%</span></div><div class="detail-item"><span class="detail-label">3号艇_1着率</span><span class="detail-value">0.0%</span></div><div class="detail-item"><span class="detail-label">3号艇_2着率</span><span class="detail-value">5.9%</span></div><div class="detail-item"><span class="detail-label">3号艇_3着率</span><span class="detail-value">7.8%</span></div><div class="detail-item"><span class="detail-label">4号艇_1着率</span><span class="detail-value">5.2%</span></div><div class="detail-item"><span class="detail-label">4号艇_2着率</span><span class="detail-value">21.0%</span></div><div class="detail-item"><span class="detail-label">4号艇_3着率</span><span class="detail-value">23.2%</span></div><div class="detail-item"><span class="detail-label">5号艇_1着率</span><span class="detail-value">2.0%</span></div><div class="detail-item"><span class="detail-label">5号艇_2着率</span><span class="detail-value">19.4%</span></div><div class="detail-item"><span class="detail-label">5号艇_3着率</span><span class="detail-value">22.3%</span></div><div class="detail-item"><span class="detail-label">6号艇_1着率</span><span class="detail-value">2.3%</span></div><div class="detail-item"><span class="detail-label">6号艇_2着率</span><span class="detail-value">22.8%</span></div><div class="detail-item"><span class="detail-label">6号艇_3着率</span><span class="detail-value">23.6%</span></div></div>
                     </details>
                 </div>
-            </article><button type="button" class="btn-top-return" onclick="showView('view-top')">‹ 一覧画面に戻る</button></div><div id="view-toda" class="page-view"><button type="button" class="btn-top-return" onclick="showView('view-top')">‹ 一覧画面に戻る</button><div style="text-align:center; margin-bottom:20px;"><h2>📍 戸田 (全 12 レース)</h2></div>
+            </article><button type="button" class="btn-top-return" onclick="window.showView('view-top')">‹ 一覧画面に戻る</button></div><div id="view-toda" class="page-view"><button type="button" class="btn-top-return" onclick="window.showView('view-top')">‹ 一覧画面に戻る</button><div style="text-align:center; margin-bottom:20px;"><h2>📍 戸田 (全 12 レース)</h2></div>
                 <article class="race-card">
                     <div class="race-header"><span class="race-num">📍 戸田 1R</span><span class="race-deadline">⏰ 締切 10:47</span></div>
                     <div class="race-body">
@@ -659,7 +659,7 @@
                         <div class="detail-grid"><div class="detail-item"><span class="detail-label">レース日</span><span class="detail-value">2026年8月23日</span></div><div class="detail-item"><span class="detail-label">勝負対象</span><span class="detail-value">-</span></div><div class="detail-item"><span class="detail-label">2号艇壁スコア</span><span class="detail-value">0.39</span></div><div class="detail-item"><span class="detail-label">最大まくり脅威艇</span><span class="detail-value">3号艇</span></div><div class="detail-item"><span class="detail-label">逃げリスク指数</span><span class="detail-value">0.176</span></div><div class="detail-item"><span class="detail-label">1号艇コース別1着率</span><span class="detail-value">60.2%</span></div><div class="detail-item"><span class="detail-label">1号艇直近10走平均着順</span><span class="detail-value">3.1</span></div><div class="detail-item"><span class="detail-label">1号艇_1着率</span><span class="detail-value">46.6%</span></div><div class="detail-item"><span class="detail-label">1号艇_2着率</span><span class="detail-value">21.9%</span></div><div class="detail-item"><span class="detail-label">1号艇_3着率</span><span class="detail-value">15.4%</span></div><div class="detail-item"><span class="detail-label">2号艇_1着率</span><span class="detail-value">22.0%</span></div><div class="detail-item"><span class="detail-label">2号艇_2着率</span><span class="detail-value">23.3%</span></div><div class="detail-item"><span class="detail-label">2号艇_3着率</span><span class="detail-value">20.4%</span></div><div class="detail-item"><span class="detail-label">3号艇_1着率</span><span class="detail-value">13.6%</span></div><div class="detail-item"><span class="detail-label">3号艇_2着率</span><span class="detail-value">17.1%</span></div><div class="detail-item"><span class="detail-label">3号艇_3着率</span><span class="detail-value">19.1%</span></div><div class="detail-item"><span class="detail-label">4号艇_1着率</span><span class="detail-value">8.9%</span></div><div class="detail-item"><span class="detail-label">4号艇_2着率</span><span class="detail-value">15.5%</span></div><div class="detail-item"><span class="detail-label">4号艇_3着率</span><span class="detail-value">18.1%</span></div><div class="detail-item"><span class="detail-label">5号艇_1着率</span><span class="detail-value">5.1%</span></div><div class="detail-item"><span class="detail-label">5号艇_2着率</span><span class="detail-value">12.0%</span></div><div class="detail-item"><span class="detail-label">5号艇_3着率</span><span class="detail-value">14.5%</span></div><div class="detail-item"><span class="detail-label">6号艇_1着率</span><span class="detail-value">3.8%</span></div><div class="detail-item"><span class="detail-label">6号艇_2着率</span><span class="detail-value">10.2%</span></div><div class="detail-item"><span class="detail-label">6号艇_3着率</span><span class="detail-value">12.5%</span></div></div>
                     </details>
                     </div>
-                </article><button type="button" class="btn-top-return" onclick="showView('view-top')">‹ 一覧画面に戻る</button></div><div id="view-edogawa" class="page-view"><button type="button" class="btn-top-return" onclick="showView('view-top')">‹ 一覧画面に戻る</button><div style="text-align:center; margin-bottom:20px;"><h2>📍 江戸川 (全 12 レース)</h2></div>
+                </article><button type="button" class="btn-top-return" onclick="window.showView('view-top')">‹ 一覧画面に戻る</button></div><div id="view-edogawa" class="page-view"><button type="button" class="btn-top-return" onclick="window.showView('view-top')">‹ 一覧画面に戻る</button><div style="text-align:center; margin-bottom:20px;"><h2>📍 江戸川 (全 12 レース)</h2></div>
                 <article class="race-card">
                     <div class="race-header"><span class="race-num">📍 江戸川 1R</span><span class="race-deadline">⏰ 締切 11:14</span></div>
                     <div class="race-body">
@@ -1031,7 +1031,7 @@
                         <div class="detail-grid"><div class="detail-item"><span class="detail-label">レース日</span><span class="detail-value">2026年8月23日</span></div><div class="detail-item"><span class="detail-label">勝負対象</span><span class="detail-value">-</span></div><div class="detail-item"><span class="detail-label">2号艇壁スコア</span><span class="detail-value">0.37</span></div><div class="detail-item"><span class="detail-label">最大まくり脅威艇</span><span class="detail-value">5号艇</span></div><div class="detail-item"><span class="detail-label">逃げリスク指数</span><span class="detail-value">0.178</span></div><div class="detail-item"><span class="detail-label">1号艇コース別1着率</span><span class="detail-value">66.1%</span></div><div class="detail-item"><span class="detail-label">1号艇直近10走平均着順</span><span class="detail-value">2.8</span></div><div class="detail-item"><span class="detail-label">1号艇_1着率</span><span class="detail-value">59.8%</span></div><div class="detail-item"><span class="detail-label">1号艇_2着率</span><span class="detail-value">21.1%</span></div><div class="detail-item"><span class="detail-label">1号艇_3着率</span><span class="detail-value">11.6%</span></div><div class="detail-item"><span class="detail-label">2号艇_1着率</span><span class="detail-value">5.5%</span></div><div class="detail-item"><span class="detail-label">2号艇_2着率</span><span class="detail-value">10.5%</span></div><div class="detail-item"><span class="detail-label">2号艇_3着率</span><span class="detail-value">13.4%</span></div><div class="detail-item"><span class="detail-label">3号艇_1着率</span><span class="detail-value">15.3%</span></div><div class="detail-item"><span class="detail-label">3号艇_2着率</span><span class="detail-value">25.5%</span></div><div class="detail-item"><span class="detail-label">3号艇_3着率</span><span class="detail-value">23.7%</span></div><div class="detail-item"><span class="detail-label">4号艇_1着率</span><span class="detail-value">3.6%</span></div><div class="detail-item"><span class="detail-label">4号艇_2着率</span><span class="detail-value">14.3%</span></div><div class="detail-item"><span class="detail-label">4号艇_3着率</span><span class="detail-value">18.3%</span></div><div class="detail-item"><span class="detail-label">5号艇_1着率</span><span class="detail-value">14.9%</span></div><div class="detail-item"><span class="detail-label">5号艇_2着率</span><span class="detail-value">20.3%</span></div><div class="detail-item"><span class="detail-label">5号艇_3着率</span><span class="detail-value">21.7%</span></div><div class="detail-item"><span class="detail-label">6号艇_1着率</span><span class="detail-value">0.9%</span></div><div class="detail-item"><span class="detail-label">6号艇_2着率</span><span class="detail-value">8.1%</span></div><div class="detail-item"><span class="detail-label">6号艇_3着率</span><span class="detail-value">11.3%</span></div></div>
                     </details>
                     </div>
-                </article><button type="button" class="btn-top-return" onclick="showView('view-top')">‹ 一覧画面に戻る</button></div><div id="view-heiwajima" class="page-view"><button type="button" class="btn-top-return" onclick="showView('view-top')">‹ 一覧画面に戻る</button><div style="text-align:center; margin-bottom:20px;"><h2>📍 平和島 (全 12 レース)</h2></div>
+                </article><button type="button" class="btn-top-return" onclick="window.showView('view-top')">‹ 一覧画面に戻る</button></div><div id="view-heiwajima" class="page-view"><button type="button" class="btn-top-return" onclick="window.showView('view-top')">‹ 一覧画面に戻る</button><div style="text-align:center; margin-bottom:20px;"><h2>📍 平和島 (全 12 レース)</h2></div>
                 <article class="race-card">
                     <div class="race-header"><span class="race-num">📍 平和島 1R</span><span class="race-deadline">⏰ 締切 11:55</span></div>
                     <div class="race-body">
@@ -1356,4 +1356,4 @@
                     <div class="table-container">
                         <table>
                             <thead><tr><th>順位</th><th>買い目</th><th>予測確率</th></tr></thead>
-                            <tbody><tr><td><span class="rank-badge">1</span></td><td><span class="combo-main">1-2-5</span></td><td><span class="prob-val">5.7%</span></td></tr><tr><td><span class="rank-badge">2</span></td><td><span class="combo-main">1-2-3</span></td><td><span class="prob-val">5.4%</span></td></tr><tr><td><span class="rank-badge">3</span></td><td><span class="combo-main">1-5-2</span></td><td><span class="prob-val">4.8%</span></td></tr><tr><td><span class="rank-badge">4</span></td><td><span class="combo-main">1-2-4</span></td><td><span class="prob-val">4.4%</span></td></tr><tr><td><span class="rank-badge">5</span></td><td><span class="combo-main">1-3-2</span></td><td><span class="prob-val">4.1%</span></td></tr><tr><td><span class="rank-badge">6</span></td><td><span class="combo-main">1-4-2</span></td><td><span class="prob-val"
+                            <tbody><tr><td><span class="rank-badge">1</span></td><td><span class="combo-main">1-2-5</span></td><td><span class="prob-val">5.7%</span></td></tr><tr><td><span class="rank-badge">2</span></td><td><span class="combo-main">1-2-3</span></td><td><span class="prob-val">5.4%</span></td></tr><tr><td><span class="rank-badge">3</span></td><td><span class="combo-main">1-5-2</span></td><td><span class="prob-val">4.8%</span></td></tr><tr><td><span class="rank-badge">4</span></td><td><span class="combo-main">1-2-4</span></td><td><span class="prob-val">4.4%</span></td></tr><tr><td><span class="rank-badge">5</span></td><td><span class="combo-main">
